@@ -1,0 +1,29 @@
+{
+  "name": "Portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "11.0.8",
+      "onFail": "download"
+    }
+  },
+  "type": "module",
+  "devDependencies": {
+    "sass": "^1.103.1",
+    "typescript": "^7.0.2",
+    "vite": "^8.2.2"
+  }
+}
