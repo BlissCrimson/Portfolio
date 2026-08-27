@@ -23,6 +23,7 @@
   "type": "module",
   "devDependencies": {
     "sass": "^1.103.1",
+    "simple-icons": "^16.28.0",
     "typescript": "^7.0.2",
     "vite": "^8.2.2"
   }
