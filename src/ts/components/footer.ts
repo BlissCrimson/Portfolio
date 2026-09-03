@@ -9,7 +9,7 @@ const linkedinIcon: SimpleIcon = {
 export function renderFooter(): string {
   return `
     <footer class="site-footer">
-      <a id="imprint" class="btn--neon"><span>Impressum</span></a>
+      <a href="/imprint.html" class="btn--neon"><span>Impressum</span></a>
       <div class="site-footer__socials">
         <a class="site-footer__social" href="https://github.com/BlissCrimson" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profil">
           ${renderSkillIcon(siGithub)}

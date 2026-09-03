@@ -1,4 +1,9 @@
 import "/src/styles/main.scss";
 import { createHomePage } from "./pages/home";
+import { createImprintPage } from "./pages/imprint";
 
-createHomePage();
+if (location.pathname.endsWith("/imprint.html")) {
+  createImprintPage();
+} else {
+  createHomePage();
+}
