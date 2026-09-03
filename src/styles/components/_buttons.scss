@@ -1,0 +1,27 @@
+@use "../abstract/indexAbstract";
+
+.btn--neon {
+  @include indexAbstract.flex-center;
+
+  padding: indexAbstract.px-to-rem(12) indexAbstract.px-to-rem(24);
+  background-color: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  cursor: pointer;
+  transition:
+    color 200ms ease-in-out,
+    border-color 200ms ease-in-out,
+    text-shadow 200ms ease-in-out,
+    box-shadow 200ms ease-in-out;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+    text-shadow: 0 0 4px var(--color-primary-glow), 0 0 10px var(--color-primary-glow);
+    box-shadow:
+      0 0 6px var(--color-primary-glow),
+      0 0 18px var(--color-primary-glow),
+      inset 0 0 10px var(--color-primary-glow);
+  }
+}

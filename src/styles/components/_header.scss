@@ -1,0 +1,44 @@
+@use "../abstract/indexAbstract";
+
+.site-header {
+  @include indexAbstract.flex-row;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: indexAbstract.px-to-rem(12) indexAbstract.px-to-rem(24);
+  background-color: var(--color-surface-alt);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-border);
+
+  &__start {
+    @include indexAbstract.flex-row;
+    gap: indexAbstract.px-to-rem(24);
+    flex-wrap: wrap;
+  }
+
+  &__name {
+    font-size: indexAbstract.px-to-rem(16);
+    font-weight: bold;
+    line-height: 1.2;
+  }
+
+  &__logo {
+    @include indexAbstract.flex-center;
+    flex-shrink: 0;
+    color: var(--color-primary);
+
+    svg {
+      display: block;
+      height: indexAbstract.px-to-rem(36);
+      width: indexAbstract.px-to-rem(36);
+      filter: drop-shadow(0 0 6px var(--color-primary-glow));
+    }
+  }
+
+  nav ul {
+    @include indexAbstract.flex-row;
+    gap: indexAbstract.px-to-rem(12);
+    flex-wrap: wrap;
+  }
+}

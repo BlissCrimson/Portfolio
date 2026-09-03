@@ -1,9 +1,9 @@
+@use "./themes/indexThemes";
 @use "./abstract/indexAbstract";
-// @use "./base/indexBase";
-// @use "./components/indexComponents";
+@use "./base/indexBase";
+@use "./components/indexComponents";
 // @use "./layout/_indexLayout";
-// @use "./pages/indexPages";
-// @use "./themes/indexThemes";
+@use "./pages/indexPages";
 // @use "./vendor/indexVendor";
 @use "./style.scss";
 

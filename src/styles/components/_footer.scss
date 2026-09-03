@@ -1,0 +1,35 @@
+@use "../abstract/indexAbstract";
+
+.site-footer {
+  @include indexAbstract.flex-row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: indexAbstract.px-to-rem(16);
+  padding: indexAbstract.px-to-rem(24);
+  border-top: 1px solid var(--color-border);
+
+  &__copyright {
+    color: var(--color-text-muted);
+    font-size: indexAbstract.px-to-rem(14);
+  }
+
+  &__socials {
+    @include indexAbstract.flex-row;
+    gap: indexAbstract.px-to-rem(16);
+  }
+
+  &__social {
+    @include indexAbstract.flex-center;
+    color: var(--color-text-muted);
+    transition: color 200ms ease-in-out;
+
+    svg {
+      width: indexAbstract.px-to-rem(24);
+      height: indexAbstract.px-to-rem(24);
+    }
+
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+}

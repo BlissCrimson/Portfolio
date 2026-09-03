@@ -1,0 +1,21 @@
+@use "../abstract/indexAbstract";
+
+.skill-card {
+  @include indexAbstract.flex-center;
+  gap: indexAbstract.px-to-rem(8);
+  height: 100%;
+  padding: indexAbstract.px-to-rem(16);
+  background-color: var(--color-surface-alt);
+  color: var(--color-primary);
+  transition: box-shadow 200ms ease-in-out;
+
+  &:hover {
+    box-shadow: 0 0 12px var(--color-primary-glow);
+  }
+}
+
+.skill-icon {
+  width: indexAbstract.px-to-rem(32);
+  height: indexAbstract.px-to-rem(32);
+  filter: drop-shadow(0 0 4px var(--color-primary-glow));
+}

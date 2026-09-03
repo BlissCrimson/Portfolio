@@ -1,0 +1,56 @@
+@use "../abstract/indexAbstract";
+
+.contact-form {
+  @include indexAbstract.column-center;
+  align-items: stretch;
+  gap: indexAbstract.px-to-rem(16);
+  max-width: indexAbstract.px-to-rem(480);
+  width: 100%;
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: indexAbstract.px-to-rem(4);
+  }
+
+  label {
+    color: var(--color-text-muted);
+    font-size: indexAbstract.px-to-rem(14);
+  }
+
+  input,
+  textarea {
+    background-color: var(--color-surface-alt);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    padding: indexAbstract.px-to-rem(10);
+    font-family: inherit;
+
+    &:focus-visible {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 8px var(--color-primary-glow);
+    }
+  }
+
+  &__error {
+    color: var(--color-danger);
+    font-size: indexAbstract.px-to-rem(13);
+    min-height: indexAbstract.px-to-rem(16);
+  }
+
+  &__checkbox {
+    @include indexAbstract.flex-row;
+    gap: indexAbstract.px-to-rem(8);
+    align-items: flex-start;
+
+    input {
+      width: auto;
+      accent-color: var(--color-primary);
+    }
+
+    label {
+      color: var(--color-text);
+    }
+  }
+}

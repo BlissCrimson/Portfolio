@@ -1,15 +1,25 @@
 :root {
   // Backgrounds
   --color-surface: #0d0e15;
+  --color-surface-alt: #14172380;
   --color-primary: #00f0ff;
-  --color-secondary: #0066FF;
-  --color-danger: #FF0055;
+  --color-secondary: #0066ff;
+  --color-danger: #ff0055;
 
-  // // Fonts
-  // --text-start: #ffffff;
-  // --text-start-muted: #d9d9d9;
+  // Glow variants (used for box-shadow/text-shadow)
+  --color-primary-glow: rgba(0, 240, 255, 0.55);
+  --color-secondary-glow: rgba(0, 102, 255, 0.55);
+  --color-danger-glow: rgba(255, 0, 85, 0.55);
 
-  // // Buttons
-  // --button-bg: #f0ea6e;
-  // --text-button: #303131;
+  // Wash variants (subtle tint for large background areas, keeps the dark surface dominant)
+  --color-primary-wash: rgba(0, 240, 255, 0.12);
+  --color-secondary-wash: rgba(0, 102, 255, 0.12);
+  --color-danger-wash: rgba(255, 0, 85, 0.12);
+
+  // Text
+  --color-text: #ffffff;
+  --color-text-muted: #9aa0b4;
+
+  // Borders
+  --color-border: rgba(0, 240, 255, 0.35);
 }

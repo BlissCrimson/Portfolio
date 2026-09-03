@@ -1,0 +1,12 @@
+// Diagonal cyberpunk gradient spanning the full page, corner to corner
+// Kept subtle (wash colors) so the dark surface stays dominant and the neon
+// accent colors used elsewhere (buttons, glows) still stand out.
+body {
+  background-color: var(--color-surface);
+  background-image: linear-gradient(
+    135deg,
+    var(--color-secondary-wash) 0%,
+    var(--color-primary-wash) 50%,
+    var(--color-danger-wash) 100%
+  );
+}

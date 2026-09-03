@@ -1,0 +1,14 @@
+body {
+  font-family: "Consolas", "Courier New", ui-monospace, monospace;
+}
+
+.heading {
+  font-family: "Segoe UI", ui-sans-serif, sans-serif;
+  color: var(--color-text);
+  text-shadow: 0 0 8px var(--color-primary-glow), 0 0 16px var(--color-primary-glow);
+  letter-spacing: 0.05em;
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
