@@ -1,0 +1,21 @@
+.techstack {
+  &__skills {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  &__skill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__icons {
+    width: 2.5rem;
+    height: 2.5rem;
+    fill: var(--color-primary);
+  }
+}

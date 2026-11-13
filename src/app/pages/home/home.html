@@ -28,46 +28,10 @@
     </dl>
   </section>
 
-  <section id="techstack" name="techstack" class="techstack">
-    <h2 class="heading">Tech Stack</h2>
-    <!-- ${{skillGroups.map(renderSkillGroup).join("")}} -->
-  </section>
+  <app-tech-stack></app-tech-stack>
 
-  <section id="projects" name="projects" class="projects">
-    <h2 class="heading">Projekte</h2>
-    <!-- <div class="projects__grid">${{projects.map(renderProjectCard).join("")}}</div> -->
-  </section>
 
-  <section id="contact" name="contact" class="contact">
-    <h2 class="heading">Kontakt</h2>
-    <form id="contact-form" class="contact-form" novalidate>
-      <div class="contact-form__field">
-        <label for="contact-name">Name</label>
-        <input id="contact-name" name="name" type="text" autocomplete="name" />
-        <span class="contact-form__error" data-error-for="name"></span>
-      </div>
+  <app-projects></app-projects>
+  <app-contact></app-contact>
 
-      <div class="contact-form__field">
-        <label for="contact-email">E-Mail</label>
-        <input id="contact-email" name="email" type="email" autocomplete="email" />
-        <span class="contact-form__error" data-error-for="email"></span>
-      </div>
-
-      <div class="contact-form__field">
-        <label for="contact-message">Nachricht</label>
-        <textarea id="contact-message" name="message" rows="5"></textarea>
-        <span class="contact-form__error" data-error-for="message"></span>
-      </div>
-
-      <div class="contact-form__field">
-        <div class="contact-form__checkbox">
-          <input id="contact-privacy" name="privacy" type="checkbox" />
-          <label for="contact-privacy">Ich stimme der Verarbeitung meiner Daten zur Kontaktaufnahme zu.</label>
-        </div>
-        <span class="contact-form__error" data-error-for="privacy"></span>
-      </div>
-
-      <button type="submit" class="btn--neon"><span>Senden</span></button>
-    </form>
-  </section>
 </main>

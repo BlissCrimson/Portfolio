@@ -46,3 +46,5 @@
 2026-11-13 - Angular-Migration: Footer-Impressum-Link von /imprint.html auf routerLink="/imprint" umgestellt.
 2026-11-13 - Angular-Migration: Navbar- und Header-Logo-Anker (#about/#techstack/#projects/#contact/#top) auf routerLink + fragment umgestellt (RouterLink in navbar.ts/header.ts importiert); app.config.ts um withInMemoryScrolling (anchorScrolling, scrollPositionRestoration) ergänzt.
 2026-11-13 - index.html: Favicon-Typ von image/x-icon auf image/jpeg korrigiert (Datei ist eine .jpg).
+2026-11-13 - docs/api-notes.md neu angelegt: simple-icons-Recherche (v16.37.0, lokal geprüft) mit Import-Schema, Feldern, Response-Beispiel, Gesamtanzahl (3470) und Prüfliste Tech-Stack (VS Code und LinkedIn nicht verfügbar).
+2026-11-13 - docs/api-notes.md um Abschnitt "Einbindung" ergänzt (Import-Varianten, Felder, Angular-Einbindung, Farbe, Barrierefreiheit, eigene Icons, Lizenz/Markenhinweis); bestehender Inhalt unverändert. Quellen: lokale package.json/types.d.ts/index.d.ts und Repo-README/DISCLAIMER.md. Keine Pakete installiert, keine Dateien angelegt.
