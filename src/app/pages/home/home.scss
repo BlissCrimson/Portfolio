@@ -1,8 +1,7 @@
-@use "../abstract/indexAbstract";
+@use '../../../styles/abstract/indexAbstract' as indexAbstract;
 
 .welcome {
   @include indexAbstract.flex-center;
-
   width: 100%;
   min-height: 60vh;
   text-align: center;

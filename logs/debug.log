@@ -1,0 +1,48 @@
+2026-08-26 - logs/debug.log angelegt.
+2026-08-26 - CLAUDE.md um Abschnitte "Befehle" und "Architektur" ergänzt (bestehende Regeln/Konventionen unverändert übernommen).
+2026-08-26 - .gitignore aufgeräumt: Gruppierung mit Kommentaren, *env.*/*.env* durch gezieltes .env/.env.* ersetzt, restliche Einträge unverändert.
+2026-08-27 - _indexThemes.scss: fehlerhaften Forward-Pfad "/colors" zu "colors" korrigiert.
+2026-08-27 - _colors.scss um Glow-/Text-/Border-Custom-Properties für Cyberpunk-Theme erweitert (surface-alt, primary/secondary/danger-glow, text, text-muted, border).
+2026-08-27 - main.scss: Einbindung von themes/abstract/base/components/pages-Indexdateien aktiviert.
+2026-08-27 - _mixin.scss um hendecagon-points()-Function und hendecagon()-Mixin (11-Eck clip-path) ergänzt.
+2026-08-27 - Neue base/-Partials (reset, typography, background) angelegt und in _indexBase.scss gebündelt; Reset-Regeln aus style.scss nach base/_reset.scss verschoben.
+2026-08-27 - Neue components/-Partials (buttons, profile, form) mit Hendekagon-Anwendungen angelegt und in _indexComponents.scss gebündelt.
+2026-08-27 - _home.scss: zirkulären Self-Use entfernt, Styles für About/Techstack/Projects/Contact-Sections ergänzt, Bildpfad auf /assets/... korrigiert.
+2026-08-27 - home.ts: Home-Page-Template um About-Me-, Tech-Stack-, Projekte- und Kontakt-Sections sowie Hendekagon-Hintergrund/Nav-Buttons erweitert.
+2026-08-27 - main.ts: createHomePage()-Aufruf ergänzt; index.html auf Minimal-Grundgerüst (#app + Script) reduziert.
+2026-08-27 - contact-form.ts neu angelegt: Client-seitige Validierung und mailto-Versand für Kontaktformular.
+2026-08-27 - 404.ts: fehlende Null-Prüfung für #app-Element ergänzt (TS18047, blockierte pnpm typecheck).
+2026-08-27 - Neue components/_header.scss (sticky Navigation mit Logo) und _skills.scss (Icon-Karten) angelegt und in _indexComponents.scss gebündelt.
+2026-08-27 - home.ts: Header um Logo/sticky Nav ergänzt, Profilbild im Hendekagon-Rahmen (Platzhalterbild) in About-Section eingefügt, Tech-Stack von Pillen-Liste auf Icon-Karten-Grid (simple-icons) umgestellt, Datenschutz-Checkbox im Kontaktformular ergänzt.
+2026-08-27 - skill-icon.ts neu angelegt: Inline-SVG-Renderer für simple-icons SimpleIcon-Objekte.
+2026-08-27 - contact-form.ts: Validierung um Pflicht-Checkbox "Datenschutz zustimmen" erweitert.
+2026-08-27 - _home.scss: About-Section zweispaltiges Layout ab md-Breakpoint, Techstack-Grid für Icon-Karten ergänzt.
+2026-08-27 - _form.scss: Checkbox-Styling (accent-color) ergänzt.
+2026-08-27 - simple-icons (v16) wurde vom Nutzer selbst per pnpm installiert und in home.ts für Tech-Stack-Icons eingebunden.
+2026-08-27 - index.html: Favicon auf Inline-SVG-Monogramm ("MT", Neon-Cyan auf dunklem Grund) umgestellt, keine neue Bild-Datei nötig.
+2026-08-27 - home.ts/_header.scss: Header-Logo um Hendekagon-Monogramm-Badge ("MT") links vom vollen Namen ergänzt.
+2026-08-27 - Auf Nutzerwunsch: Profilbild-Platzhalter (MT.-Logo mit Punkt) aus About-Me-Section entfernt, About wieder einspaltig; unbenutzte _profile.scss + Forward entfernt.
+2026-08-27 - Header-Monogramm-Badge (Hendekagon-Text "MT") entfernt, passte laut Nutzer nicht; stattdessen Logo-Bild ("...22_57_54.png", linienförmiges MT ohne Punkt) oben rechts im Header, Name+Nav links.
+2026-08-27 - index.html: Favicon auf dasselbe Logo-Bild ("...22_57_54.png") umgestellt (vorheriges Inline-SVG-Monogramm entfernt).
+2026-08-27 - Auf Nutzerwunsch: Logo-Bild (PNG mit weißem Hintergrund) durch selbst nachgebautes, transparentes Inline-SVG-Monogramm (M+T als ein zusammenhängender Linienzug, ohne Hintergrundfläche) ersetzt; wieder links im Header statt rechts positioniert. Favicon nutzt dasselbe SVG als transparente Data-URI.
+2026-08-27 - Header-Name: "Tausch" per Zeilenumbruch unter "Matthias" gesetzt (zweizeilig), Schriftgröße/Zeilenhöhe entsprechend angepasst.
+2026-08-27 - hendecagon.ts (Inline-SVG-11-Eck-Rahmen für Buttons/Hintergrund) neu angelegt und in home.ts eingebunden.
+2026-08-27 - _buttons.scss auf Umriss-Stil (transparente Mitte, SVG-Kontur statt clip-path-Fläche) umgestellt; _background.scss: .hendecagon-bg ebenfalls auf SVG-Umriss umgestellt.
+2026-08-27 - hendecagon()-Mixin und hendecagon-points()-Function aus _mixin.scss entfernt (keine Verwendung mehr, clip-path-Ansatz durch SVG ersetzt).
+2026-08-27 - _skills.scss/_home.scss: Rahmen von .skill-card entfernt, Tech-Stack-Karten per grid-auto-rows/height:100% vereinheitlicht.
+2026-08-27 - Auf Nutzerwunsch: gesamtes 11-Eck-Feature wieder entfernt (hendecagon.ts gelöscht, Buttons/Hintergrund-Element zurückgebaut). Buttons von .btn--hendecagon zu .btn--neon umbenannt (schlichter Rahmen-Look statt Sonderform), .hendecagon-bg-Element aus home.ts/_background.scss entfernt, dekorativer Radial-Glow-Hintergrund bleibt bestehen.
+2026-08-27 - _background.scss: fixierten Cyberpunk-Gradient-Hintergrund (radiale Neon-Glows aus primary/secondary/danger-glow kombiniert mit dunklem linear-gradient) auf body ergänzt.
+2026-08-27 - Auf Nutzerwunsch: Hintergrund von radialen Glow-Flecken auf einen diagonalen linear-gradient (135deg, Ecke zu Ecke über die gesamte Seite) umgestellt, weiterhin aus secondary/primary/danger-glow und surface aufgebaut.
+2026-08-27 - Auf Nutzerwunsch: Gradient auf maximal 3 Farben (secondary/primary/danger-glow) ohne surface-Zwischenstopps reduziert für fließenderen Übergang.
+2026-08-27 - footer.ts + _footer.scss neu angelegt: Footer mit Impressum-Button (.btn--neon) und Copyright-Zeile "© 2026 Matthias Tausch"; in home.ts eingebunden, alte Inline-Footer-Markup ersetzt.
+2026-08-27 - Auf Nutzerwunsch: _colors.scss um wash-Varianten (niedrige Deckkraft, 0.12) für primary/secondary/danger ergänzt; _background.scss nutzt diese statt der stärkeren glow-Variablen, damit die dunkle Fläche dominant bleibt und Akzentfarben (Buttons/Glows) weiterhin abheben.
+2026-08-27 - _buttons.scss: Hover-/Focus-Effekt von .btn--neon zu mehrschichtigem "Neon-Reklameschild"-Stil ausgebaut (glühender Rahmen, Text-Shadow-Glow, äußerer + innerer box-shadow).
+2026-08-27 - home.ts/_home.scss: Hero-Spans (.welcome__role/.welcome__name) mit responsiver clamp()-Font-Size versehen, damit der obere Bereich nicht mehr leer wirkt; About-Me um kleinen Steckbrief (Name/Rolle/Standort: Husum) als .about__facts-Definitionsliste ergänzt; Tech-Stack-Icons für "Rest API" (siOpenapiinitiative) und "Scrum" (siScrumalliance) aus simple-icons ergänzt.
+2026-08-27 - home.ts: Platzhalter-Projektkarten durch 3 echte Projekte (Join, El Pollo Loco, Pokedex) mit GitHub-Link (github.com/BlissCrimson/...), Kurzbeschreibung und Tech-Icons ersetzt; Repo-Links und Profil (github.com/BlissCrimson) per gh-CLI verifiziert (LinkedIn-Profil-URL konnte wegen Bot-Schutz nicht automatisiert geprüft werden, vom Nutzer übernommen).
+2026-08-27 - footer.ts/_footer.scss: GitHub- und LinkedIn-Profil-Links mit Icons im Footer ergänzt (.site-footer__socials); da simple-icons kein LinkedIn-Icon enthält, LinkedIn-Icon als eigenes SimpleIcon-Objekt mit Standard-"in"-Logo-Pfad direkt in footer.ts definiert.
+2026-08-27 - contact-form.ts: mailto-Zieladresse von m.tausch89@gmail.com auf kontakt@matthias-tausch.de (vom Nutzer vorgegebene Kontakt-E-Mail) geändert.
+2026-09-02 - home.ts: Project-Type um demoUrl erweitert, Live-Subdomain-URLs (join/elpolloloco/pokedex.matthias-tausch.com, vom Nutzer vorgegeben) für alle 3 Projekte ergänzt; renderProjectCard zeigt jetzt GitHub- und "Live ansehen"-Button nebeneinander in neuem .projects__actions-Wrapper. _home.scss: .projects__actions-Regel (flex, gap) ergänzt.
+2026-09-03 - imprint.html von public/ (falscher Ort, Vite kopiert public/-Inhalte unverändert nach dist/-Root, Link wäre gebrochen gewesen) zurück ins Projekt-Root verschoben, analog zu index.html; vite.config.ts um rollupOptions.input (main + imprint) für Multi-Page-Build ergänzt und fehlenden defineConfig-Import wiederhergestellt; footer.ts-Link von /public/imprint.html auf /imprint.html korrigiert. Build (pnpm build) erzeugt jetzt dist/imprint.html korrekt.
+2026-11-13 - Angular-Migration: Footer-Impressum-Link von /imprint.html auf routerLink="/imprint" umgestellt.
+2026-11-13 - Angular-Migration: Navbar- und Header-Logo-Anker (#about/#techstack/#projects/#contact/#top) auf routerLink + fragment umgestellt (RouterLink in navbar.ts/header.ts importiert); app.config.ts um withInMemoryScrolling (anchorScrolling, scrollPositionRestoration) ergänzt.
+2026-11-13 - index.html: Favicon-Typ von image/x-icon auf image/jpeg korrigiert (Datei ist eine .jpg).

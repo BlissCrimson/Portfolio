@@ -42,7 +42,7 @@ jobs:
           server: ${{ secrets.FTPS_SERVER }}
           username: ${{ secrets.FTPS_USERNAME }}
           password: ${{ secrets.FTPS_PASSWORD }}
-          local-dir: ./dist/
+          local-dir: ./dist/Portfolio/browser/
           server-dir: /matthias-tausch.com/
         continue-on-error: true
 
@@ -53,5 +53,5 @@ jobs:
           server: ${{ secrets.FTPS_SERVER }}
           username: ${{ secrets.FTPS_USERNAME }}
           password: ${{ secrets.FTPS_PASSWORD }}
-          local-dir: ./dist/
+          local-dir: ./dist/Portfolio/browser/
           server-dir: /matthias-tausch.com/
