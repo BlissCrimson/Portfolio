@@ -1,51 +1,68 @@
-<section id="techstack" class="techstack">
+<section id="techstack">
   <h2 class="heading">Tech Stack</h2>
-
-  <h3>Frontend Technologies I Use</h3>
-  <div class="techstack__skills">
-    @for (icon of frontendSkills; track icon.slug) {
-    <div class="techstack__skill">
-      <svg viewBox="0 0 24 24" aria-hidden="true" class="techstack__icons">
-        <path [attr.d]="icon.path" />
-      </svg>
-      <span>{{ icon.title }}</span>
+  <div class="techstack__area">
+    <div class="skills">
+      <div class="skills__area">
+        <h3>Frontend Technologies I Use</h3>
+        <div class="skills__list">
+          @for (icon of frontendSkills; track icon.slug) {
+          <div class="skills__item">
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="icons">
+              <path [attr.d]="icon.path" />
+            </svg>
+            <span>{{ icon.title }}</span>
+          </div>
+          }
+        </div>
+      </div>
     </div>
-    }
-  </div>
 
-  <h3>Backend Technologies I Use</h3>
-  <div class="techstack__skills">
-    @for (icon of backendSkills; track icon.slug) {
-    <div class="techstack__skill">
-      <svg viewBox="0 0 24 24" aria-hidden="true" class="techstack__icons">
-        <path [attr.d]="icon.path" />
-      </svg>
-      <span>{{ icon.title }}</span>
+    <div class="skills">
+      <div class="skills__area">
+        <h3>Backend Technologies I Use</h3>
+        <div class="skills__list">
+          @for (icon of backendSkills; track icon.slug) {
+          <div class="skills__item">
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="icons">
+              <path [attr.d]="icon.path" />
+            </svg>
+            <span>{{ icon.title }}</span>
+          </div>
+          }
+        </div>
+      </div>
     </div>
-    }
-  </div>
 
-<h3>Tools I Use</h3>
-  <div class="techstack__skills">
-    @for (icon of toolSkills; track icon.slug) {
-    <div class="techstack__skill">
-      <svg viewBox="0 0 24 24" aria-hidden="true" class="techstack__icons">
-        <path [attr.d]="icon.path" />
-      </svg>
-      <span>{{ icon.title }}</span>
+    <div class="skills">
+      <div class="skills__area">
+        <h3>Tool Technologies I Use</h3>
+        <div class="skills__list">
+          @for (icon of toolSkills; track icon.slug) {
+          <div class="skills__item">
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="icons">
+              <path [attr.d]="icon.path" />
+            </svg>
+            <span>{{ icon.title }}</span>
+          </div>
+          }
+        </div>
+      </div>
     </div>
-    }
-  </div>
 
-  <h3>Dev Technologies I Use</h3>
-  <div class="techstack__skills">
-    @for (icon of devSkills; track icon.slug) {
-    <div class="techstack__skill">
-      <svg viewBox="0 0 24 24" aria-hidden="true" class="techstack__icons">
-        <path [attr.d]="icon.path" />
-      </svg>
-      <span>{{ icon.title }}</span>
+    <div class="skills">
+      <div class="skills__area">
+        <h3>DevOps Technologies I Use</h3>
+        <div class="skills__list">
+          @for (icon of devSkills; track icon.slug) {
+          <div class="skills__item">
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="icons">
+              <path [attr.d]="icon.path" />
+            </svg>
+            <span>{{ icon.title }}</span>
+          </div>
+          }
+        </div>
+      </div>
     </div>
-    }
   </div>
 </section>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {
+  type SimpleIcon,
   siTypescript,
   siAngular,
   siSass,
@@ -12,9 +13,10 @@ import {
   siSupabase,
   siCss,
   siYaml,
-  type SimpleIcon,
   siOpenapiinitiative,
+  siGit,
 } from 'simple-icons';
+import icons from 'simple-icons/icons.json';
 
 @Component({
   imports: [],
@@ -23,19 +25,20 @@ import {
   templateUrl: './tech-stack.html',
 })
 export class TechStack {
+  siRestAPI: SimpleIcon = { ...siOpenapiinitiative, title: 'RestAPI' };
+
   protected readonly frontendSkills: SimpleIcon[] = [
     siHtml5,
     siCss,
     siJavascript,
-    siOpenapiinitiative,
     siTypescript,
     siSass,
     siAngular,
   ];
 
-  protected readonly backendSkills: SimpleIcon[] = [siFirebase, siSupabase];
+  protected readonly backendSkills: SimpleIcon[] = [this.siRestAPI, siFirebase, siSupabase];
 
-  protected readonly toolSkills: SimpleIcon[] = [siNpm, siPnpm, siGithub];
+  protected readonly toolSkills: SimpleIcon[] = [siNpm, siPnpm, siGit, siGithub];
 
   protected readonly devSkills: SimpleIcon[] = [siYaml];
 }
