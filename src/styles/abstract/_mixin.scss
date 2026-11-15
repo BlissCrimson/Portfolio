@@ -11,6 +11,12 @@
   align-items: center;
 }
 
+@mixin flex-row-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 @mixin column-center {
   display: flex;
   align-items: center;

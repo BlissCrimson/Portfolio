@@ -1,14 +1,35 @@
 body {
-  font-family: "Consolas", "Courier New", ui-monospace, monospace;
+  font-family: 'Consolas', 'Courier New', ui-monospace, monospace;
+  font-size: 16px;
 }
 
 .heading {
-  font-family: "Segoe UI", ui-sans-serif, sans-serif;
+  font-family: 'Segoe UI', ui-sans-serif, sans-serif;
   color: var(--color-text);
-  text-shadow: 0 0 8px var(--color-primary-glow), 0 0 16px var(--color-primary-glow);
+  text-shadow:
+    0 0 8px var(--color-primary-glow),
+    0 0 16px var(--color-primary-glow);
   letter-spacing: 0.05em;
 }
 
 .text-muted {
   color: var(--color-text-muted);
+}
+
+@font-face {
+  font-family: 'orbitron';
+  src: url(../../../public/assets/fonts/orbitron/Orbitron-VariableFont_wght.ttf);
+  // font-weight: 100 900;
+}
+
+@font-face {
+  font-family: 'share-tech-mono';
+  src: url(../../../public/assets/fonts/share-tech-mono/ShareTechMono-Regular.ttf);
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: 'rafdhani';
+  src: url(../../../public/assets/fonts/rajdhani/Rajdhani-Regular.ttf);
+  font-weight: 100 900;
 }
