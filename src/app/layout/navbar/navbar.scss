@@ -1,0 +1,59 @@
+@use '../../../styles/abstract/indexAbstract' as abstract;
+
+@keyframes pulseDot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.5);
+  }
+}
+
+.nav {
+  &__list {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__item {
+    position: relative;
+  }
+}
+
+.btn {
+  @include abstract.flex-center;
+
+  &__nav {
+    padding: abstract.px-to-rem(12) abstract.px-to-rem(24);
+    color: var(--color-text);
+    cursor: pointer;
+    transition:
+      color 200ms ease-in-out,
+      border-color 200ms ease-in-out,
+      text-shadow 200ms ease-in-out,
+      box-shadow 200ms ease-in-out;
+
+    &--point {
+      position: absolute;
+      left: 6px;
+      top: calc(50% - 3px);
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #00f0ff;
+      box-shadow: 0 0 6px #00f0ff;
+      animation: pulseDot 1.5s ease-in-out infinite;
+    }
+
+    &:hover,
+    &:focus-visible {
+      color: var(--color-primary);
+      text-shadow:
+        0 0 4px var(--color-primary-glow),
+        0 0 10px var(--color-primary-glow);
+    }
+  }
+}

@@ -1,9 +1,14 @@
 @use '../../../../styles/abstract/indexAbstract' as mx;
 
 .techstack {
-  // @include indexAbstract.flex-row;
+
+  // @include mx.flex-row;
+
   width: 100%;
-  gap: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   &__area {
     @include mx.flex-row-wrap;
@@ -11,6 +16,7 @@
 
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
   }
 
@@ -21,10 +27,12 @@
       0 0 8px var(--color-primary-glow),
       0 0 16px var(--color-primary-glow);
     letter-spacing: 0.05em;
+
   }
 }
 
 .skills {
+  margin: 20px;
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
@@ -32,12 +40,14 @@
   &__area {
     width: 500px;
     height: 200px;
+
     border: 0.5px solid var(--color-border);
     justify-content: center;
     margin-inline: auto;
   }
 
   &__list {
+
     display: flex;
     flex-wrap: wrap;
     gap: 1.5rem;
