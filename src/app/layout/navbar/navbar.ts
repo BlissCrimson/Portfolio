@@ -9,6 +9,7 @@ import { RouterLink } from '@angular/router';
 })
 export class Navbar {
   links = [
+    { id: 'top', label: 'Home' },
     { id: 'about', label: 'About Me' },
     { id: 'techstack', label: 'Tech Stack' },
     { id: 'projects', label: 'Projekte' },
@@ -17,7 +18,7 @@ export class Navbar {
   active = signal('');
   private observer?: IntersectionObserver;
 
-@HostListener('window:scroll')
+  @HostListener('window:scroll')
   onScroll() {
     const line = window.innerHeight * 0.4;
     let current = '';

@@ -1,5 +1,36 @@
 @use '../../../styles/abstract/indexAbstract' as indexAbstract;
 
+@keyframes pulseDot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.5);
+  }
+}
+
+.version {
+  font-family: 'share-tech-mono';
+  font-size: 14px;
+  &__text {
+    color: #00f0ff;
+  }
+  &__point {
+    position: absolute;
+    left: 6px;
+    top: calc(50% - 3px);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #00f0ff;
+    box-shadow: 0 0 6px #00f0ff;
+    animation: pulseDot 1.5s ease-in-out infinite;
+  }
+}
+
 .welcome {
   @include indexAbstract.flex-center;
   width: 100%;
