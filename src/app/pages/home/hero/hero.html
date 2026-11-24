@@ -1,0 +1,70 @@
+<section id="top" name="welcome" class="hero">
+  <div class="hero__bg" aria-hidden="true">
+    <span class="hero__glow hero__glow--blue"></span>
+    <span class="hero__glow hero__glow--cyan"></span>
+    <span class="hero__glow hero__glow--pink"></span>
+    <span class="hero__line"></span>
+    <span class="hero__line"></span>
+    <span class="hero__line"></span>
+    <span class="hero__line"></span>
+    <span class="hero__line"></span>
+  </div>
+
+  <div class="hero__inner">
+    <div class="hero__content">
+      <div class="hero__status">
+        <span class="hero__status-dot" aria-hidden="true"></span>
+        <span class="hero__status-text">SYSTEM ONLINE || v2.0.0</span>
+      </div>
+
+      <span class="hero__init" aria-hidden="true">// INIT_SEQUENCE</span>
+
+      <h1 class="hero__name" data-text="MATTHIAS TAUSCH">MATTHIAS TAUSCH</h1>
+
+      <p class="hero__role" [attr.aria-label]="fullRole">
+        <span aria-hidden="true">{{ typedRole() }}</span>
+        <span class="hero__cursor" aria-hidden="true"></span>
+      </p>
+
+      <p class="hero__text">
+        Ich bin Frontend Developer aus Husum mit Fokus auf moderne, performante und zugängliche
+        Web-Anwendungen. Ich arbeite gerne mit TypeScript, durchdachten UI-Konzepten und sauberem,
+        wartbarem Code – von der ersten Idee bis zum fertigen Interface.
+      </p>
+
+      <div class="hero__actions">
+        <a class="btn btn--neon hero__btn hero__btn--primary" routerLink="/" fragment="projects">
+          VIEW_WORK
+        </a>
+        <a class="btn btn--neon hero__btn hero__btn--ghost" routerLink="/" fragment="contact">
+          GET_IN_TOUCH
+        </a>
+      </div>
+    </div>
+
+    <div class="hero__visual">
+      <div class="hero__avatar" aria-hidden="true">
+        <div class="hero__avatar-frame">
+          <span class="hero__avatar-initials">MT</span>
+        </div>
+        <span class="hero__hud hero__hud--tl">◤</span>
+        <span class="hero__hud hero__hud--br">◢</span>
+        <span class="hero__hud hero__hud--id">ID:MT_DEV</span>
+      </div>
+
+      <ul class="hero__stats">
+        @for (stat of stats; track stat.label) {
+          <li class="hero__stat">
+            <span class="hero__stat-value">{{ stat.value }}</span>
+            <span class="hero__stat-label">{{ stat.label }}</span>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+
+  <div class="hero__scroll" aria-hidden="true">
+    <span>SCROLL</span>
+    <span class="hero__scroll-line"></span>
+  </div>
+</section>

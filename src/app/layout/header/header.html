@@ -1,12 +1,11 @@
-<header class="site-header">
-  <div class="site-header__start">
-    <a class="site-header__logo" routerLink="/" fragment="top" aria-label="Matthias Tausch">
-      <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"
-        stroke-linejoin="round">
-        <path d="M20,30 L20,75 M20,30 L45,58 L70,30 M70,30 L70,75 M58,30 L95,30" />
-      </svg>
-    </a>
-    <span class="site-header__name heading">Matthias<br />Tausch</span>
-  </div>
+<header class="site-header" [class.is-scrolled]="scrolled()">
+  <a class="site-header__logo" routerLink="/" fragment="top" aria-label="Matthias Tausch">
+    <span class="glow-cyan">MT</span><span class="site-header__logo-accent glow-pink">_SYS</span>
+  </a>
+
   <app-navbar></app-navbar>
+
+  <a class="site-header__cta" routerLink="/" fragment="contact">
+    <span class="site-header__cta-text">HIRE_ME</span>
+  </a>
 </header>

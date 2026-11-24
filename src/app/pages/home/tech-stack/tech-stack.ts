@@ -1,22 +1,30 @@
 import { Component } from '@angular/core';
 import {
   type SimpleIcon,
-  siTypescript,
   siAngular,
-  siSass,
-  siHtml5,
-  siGithub,
-  siNpm,
-  siPnpm,
-  siJavascript,
-  siFirebase,
-  siSupabase,
+  siCodeforces,
   siCss,
-  siYaml,
-  siOpenapiinitiative,
+  siFirebase,
   siGit,
+  siGithub,
+  siGooglechrome,
+  siHtml5,
+  siJavascript,
+  siNpm,
+  siOpenapiinitiative,
+  siPnpm,
+  siSass,
+  siScrumalliance,
+  siSupabase,
+  siTypescript,
 } from 'simple-icons';
-import icons from 'simple-icons/icons.json';
+
+type SkillGroup = {
+  id: string;
+  category: string;
+  description: string;
+  items: readonly SimpleIcon[];
+};
 
 @Component({
   imports: [],
@@ -25,20 +33,39 @@ import icons from 'simple-icons/icons.json';
   templateUrl: './tech-stack.html',
 })
 export class TechStack {
-  siRestAPI: SimpleIcon = { ...siOpenapiinitiative, title: 'RestAPI' };
-
-  protected readonly frontendSkills: SimpleIcon[] = [
-    siHtml5,
-    siCss,
-    siJavascript,
-    siTypescript,
-    siSass,
-    siAngular,
+  protected readonly groups: readonly SkillGroup[] = [
+    {
+      id: '01',
+      category: 'FRONTEND',
+      description: 'Interfaces & Web-Anwendungen',
+      items: [siHtml5, siCss, siSass, siJavascript, siTypescript, siAngular],
+    },
+    {
+      id: '02',
+      category: 'BACKEND',
+      description: 'Daten, Auth & Schnittstellen',
+      items: [siFirebase, siSupabase, { ...siOpenapiinitiative, title: 'REST API' }],
+    },
+    {
+      id: '03',
+      category: 'TOOLS',
+      description: 'Versionskontrolle & Tooling',
+      items: [siGit, siGithub, siNpm, siPnpm],
+    },
+    {
+      id: '04',
+      category: 'METHODEN',
+      description: 'Struktur & Entwicklungsprinzipien',
+      items: [
+        { ...siScrumalliance, title: 'SCRUM' },
+        { ...siGooglechrome, title: 'Responsive' },
+        { ...siCodeforces, title: 'OOP' },
+      ],
+    },
   ];
 
-  protected readonly backendSkills: SimpleIcon[] = [this.siRestAPI, siFirebase, siSupabase];
-
-  protected readonly toolSkills: SimpleIcon[] = [siNpm, siPnpm, siGit, siGithub];
-
-  protected readonly devSkills: SimpleIcon[] = [siYaml];
+  // Two-digit item counter shown in the card header, e.g. "03"
+  protected count(group: SkillGroup): string {
+    return group.items.length.toString().padStart(2, '0');
+  }
 }

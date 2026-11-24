@@ -1,41 +1,46 @@
 <main>
-  <div class="version">
-  <span class="version__text">SYSTEM ONLINE || v2.0.0</span>
-<span class="version__point"></span>
-</div>
-  <section id="top" name="welcome" class="welcome">
-    <h1 class="welcome__name heading">Matthias Tausch</h1>
-    <span class="welcome__role heading">Frontend
-      Developer</span>
+  <app-hero></app-hero>
+
+  <section id="about" name="about" class="about cyber-grid">
+    <div class="about__inner">
+      <div class="about__content">
+        <span class="section-label">ABOUT_SYS</span>
+        <h2 class="about__title heading">
+          BUILDING AT THE <span class="glow-cyan">EDGE</span>
+        </h2>
+        <div class="about__text">
+          <p>
+            Ich bin Frontend Developer mit Fokus auf moderne, performante und
+            zugängliche Web-Anwendungen. Ich arbeite gerne mit TypeScript,
+            durchdachten UI-Konzepten und sauberem, wartbarem Code – von der
+            ersten Idee bis zum fertigen Interface.
+          </p>
+          <p class="about__status">// Aktuell: offen für neue Projekte &amp; Zusammenarbeit</p>
+        </div>
+
+        <ul class="about__tags">
+          @for (tag of tags; track tag) {
+            <li class="about__tag">{{ tag }}</li>
+          }
+        </ul>
+      </div>
+
+      <div class="about__cards">
+        @for (card of cards; track card.label) {
+          <article class="about__card">
+            <h3 class="about__card-label">[{{ card.label }}]</h3>
+            <p class="about__card-desc">{{ card.desc }}</p>
+          </article>
+        }
+      </div>
+    </div>
   </section>
 
-  <section id="about" name="about" class="about">
-    <h2 class="heading">About Me</h2>
-    <p>
-      Ich bin Frontend Developer mit Fokus auf moderne, performante und
-      zugängliche Web-Anwendungen. Ich arbeite gerne mit TypeScript,
-      durchdachten UI-Konzepten und sauberem, wartbarem Code – von der
-      ersten Idee bis zum fertigen Interface.
-    </p>
-    <dl class="about__facts">
-      <div class="about__fact">
-        <dt>Name</dt>
-        <dd>Matthias Tausch</dd>
-      </div>
-      <div class="about__fact">
-        <dt>Rolle</dt>
-        <dd>Frontend Developer</dd>
-      </div>
-      <div class="about__fact">
-        <dt>Standort</dt>
-        <dd>Husum</dd>
-      </div>
-    </dl>
-  </section>
+  <app-projects></app-projects>
 
   <app-tech-stack></app-tech-stack>
 
-  <app-projects></app-projects>
+  <app-reviews></app-reviews>
 
   <app-contact></app-contact>
 

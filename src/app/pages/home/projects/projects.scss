@@ -1,11 +1,201 @@
-.projects {
-  &__list {
+@use '../../../../styles/abstract/indexAbstract' as indexAbstract;
 
+:host {
+  display: block;
+}
+
+.projects {
+  padding: indexAbstract.px-to-rem(112) indexAbstract.px-to-rem(24);
+  background-color: var(--color-surface);
+
+  &__inner {
+    max-width: indexAbstract.px-to-rem(1152);
+    margin: 0 auto;
   }
 
+  &__header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: indexAbstract.px-to-rem(56);
+  }
+
+  &__title {
+    margin-top: indexAbstract.px-to-rem(16);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  &__count {
+    font-family: var(--font-mono);
+    font-size: indexAbstract.px-to-rem(12);
+    color: #6b7494;
+
+    @include indexAbstract.respond(md) {
+      display: none;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: indexAbstract.px-to-rem(24);
+
+    @include indexAbstract.respond(md) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // Accent color per card is set via data-color, children read --accent
   &__card {
-    width: 300px;
-    height: 250px;
-    border: 1px solid #ffff;
+    --accent: var(--color-primary);
+    --accent-glow:
+      0 0 8px rgba(0, 240, 255, 0.27), 0 0 20px rgba(0, 240, 255, 0.13),
+      inset 0 0 20px rgba(0, 240, 255, 0.03);
+    --accent-bg: rgba(0, 240, 255, 0.03);
+
+    display: flex;
+    flex-direction: column;
+    padding: indexAbstract.px-to-rem(24);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: var(--color-card);
+    transition:
+      border-color 300ms ease,
+      background-color 300ms ease,
+      box-shadow 300ms ease,
+      transform 300ms ease;
+
+    &[data-color='blue'] {
+      --accent: var(--color-secondary);
+      --accent-glow:
+        0 0 8px rgba(0, 102, 255, 0.27), 0 0 20px rgba(0, 102, 255, 0.13),
+        inset 0 0 20px rgba(0, 102, 255, 0.03);
+      --accent-bg: rgba(0, 102, 255, 0.03);
+    }
+
+    &[data-color='pink'] {
+      --accent: var(--color-danger);
+      --accent-glow:
+        0 0 8px rgba(255, 0, 85, 0.4), 0 0 25px rgba(255, 0, 85, 0.2),
+        inset 0 0 20px rgba(255, 0, 85, 0.03);
+      --accent-bg: rgba(255, 0, 85, 0.03);
+    }
+
+    &:hover,
+    &:focus-within {
+      border-color: var(--accent);
+      background: var(--accent-bg);
+      box-shadow: var(--accent-glow);
+      transform: translateY(-2px);
+    }
+  }
+
+  &__card-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: indexAbstract.px-to-rem(16);
+  }
+
+  &__meta {
+    font-family: var(--font-mono);
+    font-size: indexAbstract.px-to-rem(12);
+    color: var(--accent);
+  }
+
+  &__name {
+    margin-top: indexAbstract.px-to-rem(4);
+    font-family: var(--font-display);
+    font-size: indexAbstract.px-to-rem(18);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--color-text-heading);
+  }
+
+  &__side {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: indexAbstract.px-to-rem(8);
+  }
+
+  &__status {
+    padding: indexAbstract.px-to-rem(2) indexAbstract.px-to-rem(8);
+    border: 1px solid color-mix(in srgb, var(--accent) 27%, transparent);
+    font-family: var(--font-mono);
+    font-size: indexAbstract.px-to-rem(10);
+    color: var(--accent);
+  }
+
+  &__year {
+    font-family: var(--font-mono);
+    font-size: indexAbstract.px-to-rem(12);
+    color: #6b7494;
+  }
+
+  &__preview {
+    margin-bottom: indexAbstract.px-to-rem(20);
+    overflow: hidden;
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    background: var(--color-surface);
+    aspect-ratio: 16 / 7;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      transition: transform 400ms ease;
+    }
+  }
+
+  &__card:hover &__preview img,
+  &__card:focus-within &__preview img {
+    transform: scale(1.04);
+  }
+
+  &__desc {
+    margin-bottom: indexAbstract.px-to-rem(20);
+    font-size: indexAbstract.px-to-rem(14);
+    line-height: 1.7;
+    color: var(--color-text-dim);
+  }
+
+  &__tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: indexAbstract.px-to-rem(8);
+    padding: 0;
+  }
+
+  &__chip {
+    padding: indexAbstract.px-to-rem(2) indexAbstract.px-to-rem(8);
+    background: var(--color-muted);
+    font-family: var(--font-mono);
+    font-size: indexAbstract.px-to-rem(12);
+    color: #6b7494;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: indexAbstract.px-to-rem(16);
+    margin-top: auto;
+    padding-top: indexAbstract.px-to-rem(20);
+  }
+
+  &__link {
+    font-family: var(--font-mono);
+    font-size: indexAbstract.px-to-rem(12);
+    letter-spacing: 0.1em;
+    color: #6b7494;
+    transition: color 150ms ease;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--accent);
+    }
   }
 }

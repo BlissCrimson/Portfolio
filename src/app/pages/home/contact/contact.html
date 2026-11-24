@@ -1,32 +1,65 @@
 <section id="contact" name="contact" class="contact">
-  <h2 class="heading">Kontakt</h2>
-  <form id="contact-form" class="contact-form" novalidate>
-    <div class="contact-form__field">
-      <label for="contact-name">Name</label>
-      <input id="contact-name" name="name" type="text" autocomplete="name" />
-      <span class="contact-form__error" data-error-for="name"></span>
-    </div>
+  <div class="contact__inner">
+    <header class="contact__header">
+      <span class="section-label section-label--pink">CONTACT_NODE</span>
+      <h2 class="contact__title heading">OPEN <span class="glow-pink">CHANNEL</span></h2>
+      <p class="contact__intro">Offen für ausgewählte Projekte und Zusammenarbeit.</p>
+    </header>
 
-    <div class="contact-form__field">
-      <label for="contact-email">E-Mail</label>
-      <input id="contact-email" name="email" type="email" autocomplete="email" />
-      <span class="contact-form__error" data-error-for="email"></span>
-    </div>
-
-    <div class="contact-form__field">
-      <label for="contact-message">Nachricht</label>
-      <textarea id="contact-message" name="message" rows="5"></textarea>
-      <span class="contact-form__error" data-error-for="message"></span>
-    </div>
-
-    <div class="contact-form__field">
-      <div class="contact-form__checkbox">
-        <input id="contact-privacy" name="privacy" type="checkbox" />
-        <label for="contact-privacy">Ich stimme der Verarbeitung meiner Daten zur Kontaktaufnahme zu.</label>
+    <form id="contact-form" class="contact-form" novalidate (submit)="onSubmit($event)">
+      <div class="contact-form__field">
+        <label for="contact-name">NAME_INPUT</label>
+        <input id="contact-name" name="name" type="text" autocomplete="name" placeholder="Dein Name" />
+        <span class="contact-form__error" role="alert">{{ errors().name }}</span>
       </div>
-      <span class="contact-form__error" data-error-for="privacy"></span>
-    </div>
 
-    <button type="submit" class="btn--neon"><span>Senden</span></button>
-  </form>
+      <div class="contact-form__field">
+        <label for="contact-email">EMAIL_INPUT</label>
+        <input id="contact-email" name="email" type="email" autocomplete="email"
+          placeholder="name@beispiel.de" />
+        <span class="contact-form__error" role="alert">{{ errors().email }}</span>
+      </div>
+
+      <div class="contact-form__field">
+        <label for="contact-message">MESSAGE_BODY</label>
+        <textarea id="contact-message" name="message" rows="5"
+          placeholder="// Beschreibe dein Projekt oder deine Anfrage..."></textarea>
+        <span class="contact-form__error" role="alert">{{ errors().message }}</span>
+      </div>
+
+      <div class="contact-form__field">
+        <div class="contact-form__checkbox">
+          <input id="contact-privacy" name="privacy" type="checkbox" />
+          <label for="contact-privacy">Ich stimme der Verarbeitung meiner Daten zur Kontaktaufnahme zu.</label>
+        </div>
+        <span class="contact-form__error" role="alert">{{ errors().privacy }}</span>
+      </div>
+
+      <button type="submit" class="contact-form__submit" [disabled]="state() === 'sending'">
+        <span class="contact-form__submit-text">{{ state() === 'sending' ? 'TRANSMITTING...' : 'TRANSMIT_MESSAGE' }}</span>
+      </button>
+
+      <p class="contact-form__status" role="status" aria-live="polite">
+        @if (state() === 'success') {
+          <span class="contact-form__status--ok">// Message received. Will respond within 48h.</span>
+        } @else if (state() === 'error') {
+          <span class="contact-form__status--error">// Transmission failed. Bitte versuche es später erneut oder nutze den E-Mail-Link unten.</span>
+        }
+      </p>
+    </form>
+
+    <ul class="contact__links">
+      <li>
+        <a class="contact__link" href="https://github.com/BlissCrimson" target="_blank"
+          rel="noopener noreferrer">GITHUB</a>
+      </li>
+      <li>
+        <a class="contact__link" href="https://www.linkedin.com/in/matthias-tausch-641234364/"
+          target="_blank" rel="noopener noreferrer">LINKEDIN</a>
+      </li>
+      <li>
+        <a class="contact__link" href="mailto:matthias.tausch@matthias-tausch.com">EMAIL</a>
+      </li>
+    </ul>
+  </div>
 </section>

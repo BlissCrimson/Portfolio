@@ -1,44 +1,81 @@
-@use "../../../styles/abstract/indexAbstract";
+@use '../../../styles/abstract/indexAbstract';
 
 .site-header {
   @include indexAbstract.flex-row;
   justify-content: space-between;
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 10;
-  padding: indexAbstract.px-to-rem(12) indexAbstract.px-to-rem(24);
-  background-color: var(--color-surface-alt);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--color-border);
+  left: 0;
+  right: 0;
+  z-index: 50;
+  padding: indexAbstract.px-to-rem(20) indexAbstract.px-to-rem(24);
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
+  transition:
+    padding 300ms ease,
+    background-color 300ms ease,
+    border-color 300ms ease,
+    backdrop-filter 300ms ease;
 
-  &__start {
-    @include indexAbstract.flex-row;
-    gap: indexAbstract.px-to-rem(24);
-    flex-wrap: wrap;
-  }
-
-  &__name {
-    font-size: indexAbstract.px-to-rem(16);
-    font-weight: bold;
-    line-height: 1.2;
+  &.is-scrolled {
+    padding-block: indexAbstract.px-to-rem(12);
+    background-color: rgba(13, 14, 21, 0.95);
+    border-bottom-color: rgba(0, 240, 255, 0.12);
+    backdrop-filter: blur(12px);
   }
 
   &__logo {
-    @include indexAbstract.flex-center;
-    flex-shrink: 0;
+    font-family: var(--font-display);
+    font-size: indexAbstract.px-to-rem(14);
+    letter-spacing: 0.1em;
     color: var(--color-primary);
+  }
 
-    svg {
-      display: block;
-      height: indexAbstract.px-to-rem(36);
-      width: indexAbstract.px-to-rem(36);
-      filter: drop-shadow(0 0 6px var(--color-primary-glow));
+  &__logo-accent {
+    color: var(--color-danger);
+  }
+
+  &__cta {
+    position: relative;
+    overflow: hidden;
+    padding: indexAbstract.px-to-rem(8) indexAbstract.px-to-rem(16);
+    border: 1px solid var(--color-danger);
+    font-family: var(--font-mono);
+    font-size: indexAbstract.px-to-rem(12);
+    letter-spacing: 0.1em;
+    color: var(--color-danger);
+    transition: color 200ms ease;
+
+    // Fill that fades in on hover
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--color-danger);
+      opacity: 0;
+      transition: opacity 200ms ease;
+    }
+
+    &:hover,
+    &:focus-visible {
+      color: var(--color-text);
+
+      &::before {
+        opacity: 1;
+      }
     }
   }
 
-  nav ul {
-    @include indexAbstract.flex-row;
-    gap: indexAbstract.px-to-rem(12);
-    flex-wrap: wrap;
+  &__cta-text {
+    position: relative;
+    z-index: 1;
+  }
+
+  // Navigation and CTA are hidden on small screens (as in the design)
+  @include indexAbstract.respond(md) {
+    app-navbar,
+    &__cta {
+      display: none;
+    }
   }
 }

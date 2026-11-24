@@ -11,8 +11,9 @@ export class Navbar {
   links = [
     { id: 'top', label: 'Home' },
     { id: 'about', label: 'About Me' },
-    { id: 'techstack', label: 'Tech Stack' },
     { id: 'projects', label: 'Projekte' },
+    { id: 'techstack', label: 'Tech Stack' },
+    { id: 'reviews', label: 'Feedback' },
     { id: 'contact', label: 'Kontakt' },
   ];
   active = signal('');

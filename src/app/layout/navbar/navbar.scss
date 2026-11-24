@@ -16,6 +16,7 @@
   &__list {
     display: flex;
     flex-direction: row;
+    gap: abstract.px-to-rem(16);
   }
 
   &__item {
@@ -27,14 +28,18 @@
   @include abstract.flex-center;
 
   &__nav {
-    padding: abstract.px-to-rem(12) abstract.px-to-rem(24);
-    color: var(--color-text);
+    padding: abstract.px-to-rem(8) abstract.px-to-rem(16);
+    font-family: var(--font-mono);
+    font-size: abstract.px-to-rem(12);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #6b7494;
     cursor: pointer;
-    transition:
-      color 200ms ease-in-out,
-      border-color 200ms ease-in-out,
-      text-shadow 200ms ease-in-out,
-      box-shadow 200ms ease-in-out;
+    transition: color 200ms ease-in-out;
+
+    &.is-active {
+      color: var(--color-primary);
+    }
 
     &--point {
       position: absolute;
@@ -43,17 +48,14 @@
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: #00f0ff;
-      box-shadow: 0 0 6px #00f0ff;
+      background: var(--color-primary);
+      box-shadow: 0 0 6px var(--color-primary);
       animation: pulseDot 1.5s ease-in-out infinite;
     }
 
     &:hover,
     &:focus-visible {
       color: var(--color-primary);
-      text-shadow:
-        0 0 4px var(--color-primary-glow),
-        0 0 10px var(--color-primary-glow);
     }
   }
 }

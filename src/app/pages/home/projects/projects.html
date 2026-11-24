@@ -1,32 +1,49 @@
 <section id="projects" name="projects" class="projects">
-  <h2 class="heading">Projekte</h2>
-  <!-- <div class="projects__grid">${{projects.map(renderProjectCard).join("")}}</div> -->
-  <div class="projects__list">
-    <article class="projects__card">
-      <h3></h3>
-      <img src="" alt="">
+  <div class="projects__inner">
+    <header class="projects__header">
       <div>
-        <button>View on Github</button>
-        <button>View in Browser</button>
+        <span class="section-label">PROJECTS_DB</span>
+        <h2 class="projects__title heading">SELECTED <span class="glow-cyan">WORK</span></h2>
       </div>
-    </article>
+      <span class="projects__count">[{{ entryCount }} ENTRIES]</span>
+    </header>
 
-    <article class="projects__card">
-      <h3></h3>
-      <img src="" alt="">
-      <div>
-        <button>View on Github</button>
-        <button>View in Browser</button>
-      </div>
-    </article>
+    <div class="projects__grid">
+      @for (project of projects; track project.id) {
+        <article class="projects__card bracket-corner" [attr.data-color]="project.color">
+          <div class="projects__card-head">
+            <div>
+              <span class="projects__meta">{{ project.id }} / {{ project.tag }}</span>
+              <h3 class="projects__name">{{ project.title }}</h3>
+            </div>
+            <div class="projects__side">
+              <span class="projects__status">{{ project.status }}</span>
+              <span class="projects__year">{{ project.year }}</span>
+            </div>
+          </div>
 
-    <article class="projects__card">
-      <h3></h3>
-      <img src="" alt="">
-      <div>
-        <button>View on Github</button>
-        <button>View in Browser</button>
-      </div>
-    </article>
+          <figure class="projects__preview">
+            <img [src]="project.image" [alt]="project.imageAlt" loading="lazy" />
+          </figure>
+
+          <p class="projects__desc">{{ project.description }}</p>
+
+          <ul class="projects__tech">
+            @for (tech of project.tech; track tech) {
+              <li class="projects__chip">{{ tech }}</li>
+            }
+          </ul>
+
+          <div class="projects__actions">
+            <a class="projects__link" [href]="project.repoUrl" target="_blank" rel="noopener noreferrer">
+              GITHUB
+            </a>
+            <a class="projects__link" [href]="project.demoUrl" target="_blank" rel="noopener noreferrer">
+              LIVE_DEMO ↗
+            </a>
+          </div>
+        </article>
+      }
+    </div>
   </div>
 </section>

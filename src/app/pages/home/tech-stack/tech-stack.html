@@ -1,85 +1,42 @@
-<section id="techstack" class="techstack">
-  <h2 class="techstack__heading">Tech Stack</h2>
-  <div class="techstack__area">
-    <div class="skills">
-      <div class="skills__area">
-        <div class="skills__title">
-          <span>MODULE_01</span>
-          <h3>FRONTEND</h3>
-          <span>Interfaces & Web-Anwendungen</span>
-        </div>
-
-        <div class="skills__list">
-          @for (icon of frontendSkills; track icon.slug) {
-          <div class="skills__item">
-            <svg viewBox="0 0 24 24" aria-hidden="true" class="icons">
-              <path [attr.d]="icon.path" />
-            </svg>
-            <span>{{ icon.title }}</span>
-          </div>
-          }
-        </div>
+<section id="techstack" class="techstack cyber-grid">
+  <div class="techstack__inner">
+    <header class="techstack__header">
+      <div>
+        <span class="section-label section-label--blue">SKILL_MATRIX</span>
+        <h2 class="techstack__title heading">TECH <span class="glow-blue">STACK</span></h2>
       </div>
-    </div>
+      <p class="techstack__intro">
+        Technologien und Methoden, die ich in Projekten konkret einsetze – ohne künstliche
+        Prozentwerte.
+      </p>
+    </header>
 
-    <div class="skills">
-      <div class="skills__area">
-        <div class="skills__title">
-          <span>MODULE_02</span>
-          <h3> BACKEND </h3>
-          <span>Daten, Auth, Schnittstellen</span>
-        </div>
-        <div class="skills__list">
-          @for (icon of backendSkills; track icon.slug) {
-          <div class="skills__item">
-            <svg viewBox="0 0 24 24" aria-hidden="true" class="icons">
-              <path [attr.d]="icon.path" />
-            </svg>
-            <span>{{ icon.title }}</span>
-          </div>
-          }
-        </div>
-      </div>
-    </div>
+    <div class="techstack__grid">
+      @for (group of groups; track group.id) {
+        <article class="skills">
+          <span class="skills__line" aria-hidden="true"></span>
 
-    <div class="skills">
-      <div class="skills__area">
-        <div class="skills__title">
-          <span>MODULE_03</span>
-          <h3> TOOL </h3>
-          <span>Versionskontrolle & Tooling</span>
-        </div>
-        <div class="skills__list">
-          @for (icon of toolSkills; track icon.slug) {
-          <div class="skills__item">
-            <svg viewBox="0 0 24 24" aria-hidden="true" class="icons">
-              <path [attr.d]="icon.path" />
-            </svg>
-            <span>{{ icon.title }}</span>
+          <div class="skills__head">
+            <div>
+              <span class="skills__module">MODULE_{{ group.id }}</span>
+              <h3 class="skills__category">{{ group.category }}</h3>
+            </div>
+            <span class="skills__count">[{{ count(group) }}]</span>
           </div>
-          }
-        </div>
-      </div>
-    </div>
+          <p class="skills__desc">{{ group.description }}</p>
 
-    <div class="skills">
-      <div class="skills__area">
-        <div class="skills__title">
-          <p>MODULE_04</p>
-          <h3> METHODEN </h3>
-          <span>Struktur & Entwicklungsprinzipien</span>
-        </div>
-        <div class="skills__list">
-          @for (icon of devSkills; track icon.slug) {
-          <div class="skills__item">
-            <svg viewBox="0 0 24 24" aria-hidden="true" class="icons">
-              <path [attr.d]="icon.path" />
-            </svg>
-            <span>{{ icon.title }}</span>
-          </div>
-          }
-        </div>
-      </div>
+          <ul class="skills__list">
+            @for (icon of group.items; track icon.slug) {
+              <li class="skills__item">
+                <svg viewBox="0 0 24 24" aria-hidden="true" class="skills__icon">
+                  <path [attr.d]="icon.path" />
+                </svg>
+                <span class="skills__name">{{ icon.title }}</span>
+              </li>
+            }
+          </ul>
+        </article>
+      }
     </div>
   </div>
 </section>

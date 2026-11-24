@@ -1,0 +1,40 @@
+<section id="reviews" name="reviews" class="reviews" aria-labelledby="reviews-heading"
+  aria-roledescription="Karussell">
+  <div class="reviews__inner">
+    <header class="reviews__header">
+      <span class="section-label">FEEDBACK_LOG</span>
+      <h2 id="reviews-heading" class="reviews__title heading">WAS ANDERE <span class="glow-cyan">SAGEN</span></h2>
+      <p class="reviews__intro">Stimmen aus Teamarbeit und Projekten (Platzhalter bis echte Zitate vorliegen).</p>
+    </header>
+
+    <div class="reviews__stage">
+      @for (review of reviews; track review.name; let i = $index) {
+        @if (i === selected()) {
+          <article class="reviews__card bracket-corner">
+            <div class="reviews__card-head">
+              <span class="reviews__quote-mark" aria-hidden="true">“</span>
+              <span class="reviews__badge">PLATZHALTER</span>
+            </div>
+            <blockquote class="reviews__quote">{{ review.quote }}</blockquote>
+            <footer class="reviews__author">
+              <p class="reviews__name">{{ review.name }}</p>
+              <p class="reviews__role">{{ review.role }}</p>
+            </footer>
+          </article>
+        }
+      }
+    </div>
+
+    <div class="reviews__controls">
+      <button type="button" class="reviews__btn" aria-label="Vorherige Rezension" (click)="switchReview(-1)">
+        <span aria-hidden="true">←</span>
+      </button>
+      <p class="reviews__counter" aria-live="polite" aria-atomic="true">
+        {{ pad(selected() + 1) }} / {{ pad(reviews.length) }}
+      </p>
+      <button type="button" class="reviews__btn" aria-label="Nächste Rezension" (click)="switchReview(1)">
+        <span aria-hidden="true">→</span>
+      </button>
+    </div>
+  </div>
+</section>
