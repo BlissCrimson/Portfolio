@@ -1,5 +1,5 @@
 // All visible texts. German is the reference; English must have the same shape.
-// Entries in [brackets] are placeholders that still need real content.
+// References are labeled examples until real ones are available.
 // One block of the privacy policy; "sub" renders as h3, "showContact" adds the controller contact block
 type PrivacySection = {
   title: string;
@@ -78,9 +78,24 @@ const de = {
     title: 'Referenzen',
     carousel: 'Karussell',
     goTo: 'Referenz anzeigen',
-    quote: '[Platzhalter: Hier folgt eine echte Referenz.]',
-    name: '[Name]',
-    project: '[Projekt]',
+    exampleLabel: 'Beispiel',
+    items: [
+      {
+        quote: '„Die Zusammenarbeit war zuverlässig und gut abgestimmt. Aufgaben wurden sauber umgesetzt und Rückfragen früh geklärt.“',
+        name: 'Beispielperson A',
+        project: 'Join',
+      },
+      {
+        quote: '„Strukturierter Code, klare Kommunikation und ein gutes Auge für Details.“',
+        name: 'Beispielperson B',
+        project: 'El Pollo Loco',
+      },
+      {
+        quote: '„Feedback wurde schnell aufgenommen und das Ergebnis Schritt für Schritt verbessert.“',
+        name: 'Beispielperson C',
+        project: 'Pokedex',
+      },
+    ],
   },
   contact: {
     title: 'Kontakt',
@@ -317,9 +332,24 @@ const en: Dictionary = {
     title: 'References',
     carousel: 'carousel',
     goTo: 'Show reference',
-    quote: '[Placeholder: A real reference will follow here.]',
-    name: '[Name]',
-    project: '[Project]',
+    exampleLabel: 'Example',
+    items: [
+      {
+        quote: '“The collaboration was reliable and well coordinated. Tasks were implemented cleanly and questions were clarified early.”',
+        name: 'Example person A',
+        project: 'Join',
+      },
+      {
+        quote: '“Structured code, clear communication and a good eye for detail.”',
+        name: 'Example person B',
+        project: 'El Pollo Loco',
+      },
+      {
+        quote: '“Feedback was picked up quickly and the result improved step by step.”',
+        name: 'Example person C',
+        project: 'Pokedex',
+      },
+    ],
   },
   contact: {
     title: 'Contact me',

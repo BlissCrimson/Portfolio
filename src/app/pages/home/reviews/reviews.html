@@ -7,10 +7,11 @@
     <ul #list class="references__list" [attr.aria-roledescription]="t.references.carousel" (scroll)="onScroll()">
       @for (slot of slots; track slot) {
         <li class="references__item">
-          <blockquote>{{ t.references.quote }}</blockquote>
+          <blockquote>{{ t.references.items[slot].quote }}</blockquote>
           <p class="references__author">
-            <span class="references__name">{{ t.references.name }}</span>
-            <span>{{ t.references.project }}</span>
+            <span class="references__name">{{ t.references.items[slot].name }}</span>
+            <span>{{ t.references.items[slot].project }}</span>
+            <span>{{ t.references.exampleLabel }}</span>
           </p>
         </li>
       }
