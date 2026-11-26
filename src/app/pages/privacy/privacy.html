@@ -3,6 +3,46 @@
 <main class="legal">
   <app-arrow class="legal__back" target="top" direction="left" [label]="t.nav.back" />
   <h1 class="legal__title outline-text">{{ t.privacy.title }}</h1>
-  <p>{{ t.privacy.placeholder }}</p>
+
+  @for (section of t.privacy.sections; track $index) {
+    @if (section.sub) {
+      <h3>{{ section.title }}</h3>
+    } @else {
+      <h2>{{ section.title }}</h2>
+    }
+
+    @for (text of section.paragraphs; track $index) {
+      <p>{{ text }}</p>
+    }
+
+    @if (section.items) {
+      <ul>
+        @for (item of section.items; track $index) {
+          <li>{{ item }}</li>
+        }
+      </ul>
+    }
+
+    @for (text of section.closing ?? []; track $index) {
+      <p>{{ text }}</p>
+    }
+
+    @if (section.showContact) {
+      <p>
+        Matthias Tausch<br />
+        Eikammsweg 10<br />
+        25821 Breklum<br />
+        {{ t.legal.email }}: matthias.tausch&#64;matthias-tausch.com<br />
+        {{ t.legal.phone }}: 0049 170 3828724
+      </p>
+    }
+  }
+
+  <p class="legal__note">
+    <em>{{ t.privacy.note.start }}
+      <a href="https://www.activemind.de/datenschutz/datenschutzbeauftragter/" target="_blank" rel="noopener">{{
+        t.privacy.note.link }}</a>
+      {{ t.privacy.note.end }}</em>
+  </p>
 </main>
 <app-footer />

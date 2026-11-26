@@ -25,6 +25,17 @@
     color: var(--color-accent);
   }
 
+  h3 {
+    margin: 1.5rem 0 0.5rem;
+    font-size: 1rem;
+  }
+
+  ul {
+    margin: 0.5rem 0 1rem;
+    padding-left: 1.25rem;
+    list-style: disc;
+  }
+
   a {
     text-decoration: underline;
   }

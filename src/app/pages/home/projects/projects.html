@@ -21,7 +21,7 @@
               <h4 class="card__label">{{ t.work.tech }}</h4>
               <p class="card__text">{{ project.tech }}</p>
               <h4 class="card__label">{{ t.work.learned }}</h4>
-              <p class="card__text">{{ t.work.learnedPlaceholder }}</p>
+              <p class="card__text">{{ t.work.learnedTexts[project.description] }}</p>
 
               <figure class="card__preview">
                 @for (image of project.images; track image) {

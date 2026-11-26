@@ -1,6 +1,6 @@
 @use '../../../../styles/abstract/indexAbstract';
 
-// Plain black so the faded photo edges blend into the background
+// Same pure black as the background of the cut-out photo, so no image edge is visible
 :host.panel {
   background: #000;
 }
@@ -12,8 +12,6 @@
     display: block;
     object-fit: cover;
     object-position: 50% 20%;
-    // Fades the studio background out into black
-    mask-image: radial-gradient(ellipse 50% 49% at 50% 50%, #000 55%, transparent 100%);
   }
 
   &__name {
@@ -96,6 +94,8 @@
       height: auto;
       aspect-ratio: 4 / 5;
       margin: 0 auto;
+      // The mobile crop cuts off the lower part of the photo, so fade that edge too
+      mask-image: linear-gradient(#000 78%, transparent);
     }
 
     &__title {
