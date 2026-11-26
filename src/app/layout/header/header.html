@@ -1,11 +1,44 @@
-<header class="site-header" [class.is-scrolled]="scrolled()">
-  <a class="site-header__logo" routerLink="/" fragment="top" aria-label="Matthias Tausch">
-    <span class="glow-cyan">MT</span><span class="site-header__logo-accent glow-pink">_SYS</span>
+@let t = translation.texts();
+
+<header class="site-header">
+  <a class="site-header__logo" routerLink="/" fragment="top" [attr.aria-label]="t.nav.home"
+    (click)="menuOpen.set(false); scrollToSection('top')">
+    <svg viewBox="0 0 120 80" aria-hidden="true">
+      <path id="header-logo-arc" d="M12 72a48 48 0 0 1 96 0" fill="none" />
+      <text class="site-header__logo-arc">
+        <textPath href="#header-logo-arc" startOffset="50%" text-anchor="middle">frontend developer</textPath>
+      </text>
+      <text class="site-header__logo-initials" x="60" y="68" text-anchor="middle">MT</text>
+    </svg>
   </a>
 
-  <app-navbar></app-navbar>
+  <button type="button" class="site-header__toggle" aria-controls="main-menu"
+    [attr.aria-expanded]="menuOpen()" [attr.aria-label]="menuOpen() ? t.nav.close : t.nav.open"
+    (click)="menuOpen.set(!menuOpen())">
+    <span></span><span></span><span></span>
+  </button>
 
-  <a class="site-header__cta" routerLink="/" fragment="contact">
-    <span class="site-header__cta-text">HIRE_ME</span>
-  </a>
+  <div id="main-menu" class="site-header__menu" [class.is-open]="menuOpen()">
+    <app-navbar (navigated)="menuOpen.set(false)" />
+
+    <div class="site-header__tools">
+      <ul class="site-header__socials">
+        @for (social of socials; track social.key) {
+          <li>
+            <a [href]="social.url" target="_blank" rel="noopener noreferrer"
+              [attr.aria-label]="t.social[social.key]">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path [attr.d]="social.path" /></svg>
+            </a>
+          </li>
+        }
+      </ul>
+
+      <div class="site-header__languages" role="group" [attr.aria-label]="t.nav.language">
+        @for (language of languages; track language) {
+          <button type="button" [attr.aria-pressed]="translation.language() === language"
+            (click)="translation.use(language)">{{ language.toUpperCase() }}</button>
+        }
+      </div>
+    </div>
+  </div>
 </header>

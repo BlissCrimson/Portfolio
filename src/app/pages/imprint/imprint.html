@@ -1,21 +1,24 @@
-<div id='generator_results'>
-  <div id='generator_results_content'>
-    <h1>Impressum</h1>
-    <h2>Verantwortliche(r)</h2>
-    <p class='generator_user_input'>Matthias Tausch</p>
-    <h3>Postanschrift</h3>
-    <p class='generator_user_input'>Eikammsweg 10<br />
-      25821 Breklum</p>
-    <h3>Kontakt</h3>
-    <p>E-Mail: matthias.tausch@matthias-tausch.com</p>
-    <p>Telefon: 0049 170 3828724</p>
-    <h2>Hinweise zur Website</h2>
-    <h3>Urheberrechtliche Hinweise</h3>
-    <p class='generator_user_input'>[Bitte Informationen ergänzen]</p>
-    <h3>Verantwortlich für journalistisch-redaktionelle Inhalte</h3>
-    <p class='generator_user_input'>[Bitte Informationen ergänzen]</p>
-    <p><em>Dieses Impressum wurde mit Hilfe des <a href="https://www.activemind.de/generatoren/impressum/"
-          target="_blank" rel="noopener">Impressums-Generators der activeMind AG</a> erstellt (Version 2024-07-21).</em>
-    </p>
-  </div>
-</div>
+@let t = translation.texts();
+
+<main class="legal">
+  <app-arrow class="legal__back" target="top" direction="left" [label]="t.nav.back" />
+  <h1 class="legal__title outline-text">{{ t.legal.title }}</h1>
+
+  <h2>{{ t.legal.responsible }}</h2>
+  <p>Matthias Tausch</p>
+
+  <h2>{{ t.legal.address }}</h2>
+  <p>Eikammsweg 10<br />25821 Breklum</p>
+
+  <h2>{{ t.legal.contact }}</h2>
+  <p>{{ t.legal.email }}: matthias.tausch&#64;matthias-tausch.com</p>
+  <p>{{ t.legal.phone }}: 0049 170 3828724</p>
+
+  <p class="legal__note">
+    <em>{{ t.legal.generatorStart }}
+      <a href="https://www.activemind.de/generatoren/impressum/" target="_blank" rel="noopener">{{
+        t.legal.generatorLink }}</a>
+      {{ t.legal.generatorEnd }}</em>
+  </p>
+</main>
+<app-footer />

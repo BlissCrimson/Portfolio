@@ -1,12 +1,18 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { Footer } from '../../../layout/footer/footer';
+import { Arrow } from '../../../shared/components/arrow/arrow';
+import { Translation } from '../../../shared/services/translation';
 
 type FieldName = 'name' | 'email' | 'message' | 'privacy';
 type SendState = 'idle' | 'sending' | 'success' | 'error';
+type FormValues = { name: string; email: string; message: string; privacy: boolean };
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const emptyValues: FormValues = { name: '', email: '', message: '', privacy: false };
 
 @Component({
-  imports: [],
+  imports: [Arrow, Footer, RouterLink],
   selector: 'app-contact',
   styleUrl: './contact.scss',
   templateUrl: './contact.html',
@@ -15,22 +21,44 @@ export class Contact {
   // Relative to the site root; the PHP script must be deployed there
   private readonly endpoint = 'contact_form_mail.php';
 
-  protected readonly errors = signal<Partial<Record<FieldName, string>>>({});
+  protected readonly translation = inject(Translation);
   protected readonly state = signal<SendState>('idle');
+
+  private readonly values = signal<FormValues>(emptyValues);
+  // Errors only show up for fields the user has already left
+  private readonly touched = signal<ReadonlySet<string>>(new Set());
+
+  protected readonly invalid = computed<Record<FieldName, boolean>>(() => {
+    const { name, email, message, privacy } = this.values();
+    return { name: !name, email: !emailPattern.test(email), message: !message, privacy: !privacy };
+  });
+  protected readonly valid = computed(() => !Object.values(this.invalid()).includes(true));
+
+  protected showError(field: FieldName): boolean {
+    return this.touched().has(field) && this.invalid()[field];
+  }
+
+  protected onInput(event: Event): void {
+    this.values.set(this.readValues(event.currentTarget as HTMLFormElement));
+  }
+
+  protected onBlur(event: Event): void {
+    const field = (event.target as HTMLInputElement).name;
+    if (field) this.touched.update((current) => new Set(current).add(field));
+  }
 
   protected async onSubmit(event: Event): Promise<void> {
     event.preventDefault();
     if (this.state() === 'sending') return;
 
     const form = event.target as HTMLFormElement;
-    const data = new FormData(form);
-    const name = String(data.get('name') ?? '').trim();
-    const email = String(data.get('email') ?? '').trim();
-    const message = String(data.get('message') ?? '').trim();
-    const privacyAccepted = data.get('privacy') !== null;
+    this.values.set(this.readValues(form));
+    if (!this.valid()) {
+      this.touched.set(new Set(['name', 'email', 'message', 'privacy']));
+      return;
+    }
 
-    if (!this.validate(name, email, message, privacyAccepted)) return;
-
+    const { name, email, message } = this.values();
     this.state.set('sending');
     try {
       const response = await fetch(this.endpoint, {
@@ -42,18 +70,20 @@ export class Contact {
       if (!response.ok || !result.success) throw new Error('Mail delivery failed');
       this.state.set('success');
       form.reset();
+      this.values.set(emptyValues);
+      this.touched.set(new Set());
     } catch {
       this.state.set('error');
     }
   }
 
-  private validate(name: string, email: string, message: string, privacy: boolean): boolean {
-    const errors: Partial<Record<FieldName, string>> = {};
-    if (!name) errors.name = 'Bitte gib deinen Namen an.';
-    if (!emailPattern.test(email)) errors.email = 'Bitte gib eine gültige E-Mail-Adresse an.';
-    if (!message) errors.message = 'Bitte gib eine Nachricht ein.';
-    if (!privacy) errors.privacy = 'Bitte stimme der Datenverarbeitung zu.';
-    this.errors.set(errors);
-    return Object.keys(errors).length === 0;
+  private readValues(form: HTMLFormElement): FormValues {
+    const data = new FormData(form);
+    return {
+      name: String(data.get('name') ?? '').trim(),
+      email: String(data.get('email') ?? '').trim(),
+      message: String(data.get('message') ?? '').trim(),
+      privacy: data.get('privacy') !== null,
+    };
   }
 }

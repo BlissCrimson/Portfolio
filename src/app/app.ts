@@ -1,14 +1,15 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Footer } from './layout/footer/footer';
 import { Header } from './layout/header/header';
 
 @Component({
-  imports: [RouterOutlet, Header, Footer],
+  imports: [RouterOutlet, Header],
   selector: 'app-root',
   styleUrl: './app.scss',
   templateUrl: './app.html',
 })
 export class App {
-  protected readonly title = signal('Portfolio');
+  protected scrollToTop(): void {
+    window.scrollTo?.({ top: 0, behavior: 'instant' });
+  }
 }

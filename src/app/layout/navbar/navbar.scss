@@ -1,61 +1,55 @@
-@use '../../../styles/abstract/indexAbstract' as abstract;
-
-@keyframes pulseDot {
-  0%,
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.5;
-    transform: scale(1.5);
-  }
-}
+@use '../../../styles/abstract/indexAbstract';
 
 .nav {
   &__list {
     display: flex;
-    flex-direction: row;
-    gap: abstract.px-to-rem(16);
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
   }
 
-  &__item {
-    position: relative;
-  }
-}
-
-.btn {
-  @include abstract.flex-center;
-
-  &__nav {
-    padding: abstract.px-to-rem(8) abstract.px-to-rem(16);
-    font-family: var(--font-mono);
-    font-size: abstract.px-to-rem(12);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #6b7494;
-    cursor: pointer;
-    transition: color 200ms ease-in-out;
-
-    &.is-active {
-      color: var(--color-primary);
-    }
-
-    &--point {
-      position: absolute;
-      left: 6px;
-      top: calc(50% - 3px);
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--color-primary);
-      box-shadow: 0 0 6px var(--color-primary);
-      animation: pulseDot 1.5s ease-in-out infinite;
-    }
+  &__link {
+    display: block;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.4em;
 
     &:hover,
-    &:focus-visible {
-      color: var(--color-primary);
+    &.is-active {
+      text-decoration-line: underline;
+    }
+  }
+
+  &__label--mobile {
+    display: none;
+  }
+
+  @include indexAbstract.desktop {
+    height: 100%;
+
+    &__list {
+      justify-content: center;
+      height: 100%;
+      gap: clamp(1rem, 5vh, 5rem);
+    }
+
+    // Reads bottom to top; the first link stays the topmost one
+    &__link {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-size: clamp(1rem, 2.6vh, 2.25rem);
+      white-space: nowrap;
+    }
+  }
+
+  @include indexAbstract.mobile {
+    &__label--desktop {
+      display: none;
+    }
+
+    &__label--mobile {
+      display: inline;
     }
   }
 }

@@ -1,56 +1,84 @@
 @use '../../../styles/abstract/indexAbstract';
 
+:host {
+  display: block;
+}
+
+.footer-socials {
+  display: none;
+}
+
 .site-footer {
-  @include indexAbstract.flex-row;
-  justify-content: space-between;
+  display: flex;
   flex-wrap: wrap;
-  gap: indexAbstract.px-to-rem(12);
-  padding: indexAbstract.px-to-rem(24);
-  border-top: 1px solid rgba(0, 240, 255, 0.08);
-  background-color: var(--color-surface-dark);
+  justify-content: flex-end;
+  gap: 0.5rem 1.75rem;
+  font-size: 0.875rem;
 
-  &__copyright {
-    order: -1;
-    font-family: var(--font-mono);
-    font-size: indexAbstract.px-to-rem(12);
-    color: #6b7494;
+  &__logo {
+    display: none;
   }
 
-  // Imprint link: plain mono text link instead of the neon button
-  &__imprint {
-    font-family: var(--font-mono);
-    font-size: indexAbstract.px-to-rem(12);
-    letter-spacing: 0.1em;
-    color: rgba(0, 240, 255, 0.27);
-    transition: color 150ms ease;
+  &__links {
+    display: flex;
+    gap: 1.75rem;
 
-    &:hover,
-    &:focus-visible {
-      color: var(--color-primary);
+    a:hover {
+      text-decoration: underline;
     }
   }
+}
 
-  &__socials {
-    @include indexAbstract.flex-row;
-    gap: indexAbstract.px-to-rem(16);
-  }
-
-  &__social {
-    @include indexAbstract.flex-center;
-    font-family: var(--font-mono);
-    font-size: indexAbstract.px-to-rem(12);
-    letter-spacing: 0.1em;
-    color: #6b7494;
-    transition: color 200ms ease-in-out;
-
-    &:hover {
-      color: var(--color-primary);
-    }
-  }
-
-  @include indexAbstract.respond(md) {
-    flex-direction: column;
+@include indexAbstract.mobile {
+  .footer-socials {
+    display: flex;
     justify-content: center;
-    text-align: center;
+    gap: 1.5rem;
+    padding: 1.5rem 0 2.5rem;
+
+    a {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--color-text);
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
+      fill: #111;
+    }
+  }
+
+  .site-footer {
+    flex-direction: column;
+    align-items: center;
+    padding: 1.25rem;
+    background: linear-gradient(160deg, var(--color-accent) 60%, #7ea61c 100%);
+    color: var(--color-text-on-accent);
+
+    &__logo {
+      display: block;
+      width: 110px;
+    }
+
+    &__logo-arc {
+      font-size: 11px;
+      fill: currentColor;
+    }
+
+    &__logo-initials {
+      font-size: 34px;
+      font-weight: 700;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.4;
+    }
+
+    &__links {
+      order: 1;
+    }
   }
 }

@@ -1,42 +1,31 @@
-<section id="techstack" class="techstack cyber-grid">
-  <div class="techstack__inner">
-    <header class="techstack__header">
-      <div>
-        <span class="section-label section-label--blue">SKILL_MATRIX</span>
-        <h2 class="techstack__title heading">TECH <span class="glow-blue">STACK</span></h2>
-      </div>
-      <p class="techstack__intro">
-        Technologien und Methoden, die ich in Projekten konkret einsetze – ohne künstliche
-        Prozentwerte.
-      </p>
-    </header>
+@let t = translation.texts();
 
-    <div class="techstack__grid">
-      @for (group of groups; track group.id) {
-        <article class="skills">
-          <span class="skills__line" aria-hidden="true"></span>
+<div class="panel__inner">
+  <h2 class="section-title outline-text">{{ t.skills.title }}</h2>
 
-          <div class="skills__head">
-            <div>
-              <span class="skills__module">MODULE_{{ group.id }}</span>
-              <h3 class="skills__category">{{ group.category }}</h3>
-            </div>
-            <span class="skills__count">[{{ count(group) }}]</span>
-          </div>
-          <p class="skills__desc">{{ group.description }}</p>
+  <div class="skills">
+    <p>{{ t.skills.intro }}</p>
 
-          <ul class="skills__list">
-            @for (icon of group.items; track icon.slug) {
-              <li class="skills__item">
-                <svg viewBox="0 0 24 24" aria-hidden="true" class="skills__icon">
-                  <path [attr.d]="icon.path" />
-                </svg>
-                <span class="skills__name">{{ icon.title }}</span>
-              </li>
-            }
-          </ul>
-        </article>
+    <ul class="skills__list">
+      @for (skill of skills; track skill.title) {
+        <li class="skills__item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path [attr.d]="skill.path" /></svg>
+          {{ skill.title }}
+        </li>
       }
+      <li class="skills__item">
+        <span class="skills__question" aria-hidden="true">?</span>
+        {{ t.skills.challenge }}
+      </li>
+    </ul>
+
+    <div class="skills__footer">
+      <p>{{ t.skills.more }}</p>
+      <a class="btn-pill" routerLink="/" fragment="contact" (click)="scrollToSection('contact')">
+        {{ t.skills.cta }}
+      </a>
     </div>
   </div>
-</section>
+</div>
+
+<app-arrow class="skills-arrow" target="projects" />

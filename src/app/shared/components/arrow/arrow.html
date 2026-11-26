@@ -1,0 +1,7 @@
+<!-- The click handler also covers a repeated jump to the current fragment -->
+<a class="arrow" [class]="'arrow--' + direction()" routerLink="/" [fragment]="target()"
+  [attr.aria-label]="label() ?? translation.texts().nav.next" (click)="scrollToSection(target())">
+  <svg viewBox="0 0 80 28" width="80" height="28" aria-hidden="true">
+    <path d="M2 14H76M63 2l13 12-13 12" />
+  </svg>
+</a>

@@ -1,49 +1,32 @@
-import { Component, signal } from '@angular/core';
-
-type Review = { name: string; role: string; quote: string };
+import { Component, ElementRef, inject, signal, viewChild } from '@angular/core';
+import { Arrow } from '../../../shared/components/arrow/arrow';
+import { Translation } from '../../../shared/services/translation';
 
 @Component({
-  imports: [],
+  imports: [Arrow],
   selector: 'app-reviews',
   styleUrl: './reviews.scss',
   templateUrl: './reviews.html',
-  host: {
-    '(keydown.arrowLeft)': 'switchReview(-1, $event)',
-    '(keydown.arrowRight)': 'switchReview(1, $event)',
-  },
 })
 export class Reviews {
-  protected readonly reviews: readonly Review[] = [
-    {
-      name: 'Teammitglied A',
-      role: 'Zusammenarbeit im Projekt',
-      quote:
-        'Matthias bringt Struktur ins Projekt und hat immer ein offenes Ohr für neue Ideen. Die Zusammenarbeit ist unkompliziert und lösungsorientiert.',
-    },
-    {
-      name: 'Teammitglied B',
-      role: 'Gemeinsame Entwicklung',
-      quote:
-        'Besonders schätze ich Matthias’ Blick fürs Detail. Er erklärt technische Themen verständlich und arbeitet mit viel Geduld an einer sauberen Lösung.',
-    },
-    {
-      name: 'Projektkontakt C',
-      role: 'Feedback zum Interface',
-      quote:
-        'Von der ersten Idee bis zum fertigen Interface denkt Matthias mit. Auf Feedback geht er konstruktiv ein und legt Wert auf eine intuitive Bedienung.',
-    },
-  ];
+  private readonly list = viewChild.required<ElementRef<HTMLElement>>('list');
 
+  protected readonly translation = inject(Translation);
+  // Placeholder slots until real quotes are available
+  protected readonly slots = [0, 1, 2];
   protected readonly selected = signal(0);
 
-  // Wraps around at both ends
-  protected switchReview(direction: number, event?: Event): void {
-    event?.preventDefault();
-    const count = this.reviews.length;
-    this.selected.update((current) => (current + direction + count) % count);
+  // Mobile carousel: keeps the dots in sync with swiping
+  protected onScroll(): void {
+    const list = this.list().nativeElement;
+    const distance = list.scrollWidth - list.clientWidth;
+    const progress = distance ? list.scrollLeft / distance : 0;
+    this.selected.set(Math.round(progress * (this.slots.length - 1)));
   }
 
-  protected pad(value: number): string {
-    return value.toString().padStart(2, '0');
+  protected show(index: number): void {
+    const list = this.list().nativeElement;
+    const item = list.children[index] as HTMLElement;
+    list.scrollTo({ left: item.offsetLeft - list.offsetLeft, behavior: 'smooth' });
   }
 }

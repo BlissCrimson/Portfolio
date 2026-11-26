@@ -1,0 +1,33 @@
+@let t = translation.texts();
+
+<div class="panel__inner">
+  <h2 class="section-title outline-text">{{ t.why.title }}</h2>
+
+  <div class="why">
+    <p>{{ t.why.text }}</p>
+    <h3 class="why__subtitle">{{ t.why.iAm }}</h3>
+
+    <ul class="why__facts">
+      <li>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path fill-rule="evenodd"
+            d="M12 2a8 8 0 0 0-8 8c0 5.5 8 12 8 12s8-6.5 8-12a8 8 0 0 0-8-8Zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" />
+        </svg>
+        {{ t.why.located }}
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path fill-rule="evenodd"
+            d="M7 9h14v10H7V9Zm2 2v6h10v-6H9ZM4 20h20v2H4v-2ZM1 2a10 10 0 0 1 10 6H9a8 8 0 0 0-8-4V2Zm0 4a6 6 0 0 1 5 2.5H4A5 5 0 0 0 1 8V6Z" />
+        </svg>
+        {{ t.why.remote }}
+      </li>
+    </ul>
+
+    <a class="btn-pill why__cta" routerLink="/" fragment="contact" (click)="scrollToSection('contact')">
+      {{ t.why.cta }}
+    </a>
+  </div>
+</div>
+
+<app-arrow class="why-arrow" target="techstack" />

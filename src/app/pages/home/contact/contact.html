@@ -1,65 +1,81 @@
-<section id="contact" name="contact" class="contact">
-  <div class="contact__inner">
-    <header class="contact__header">
-      <span class="section-label section-label--pink">CONTACT_NODE</span>
-      <h2 class="contact__title heading">OPEN <span class="glow-pink">CHANNEL</span></h2>
-      <p class="contact__intro">Offen für ausgewählte Projekte und Zusammenarbeit.</p>
-    </header>
+@let t = translation.texts();
 
-    <form id="contact-form" class="contact-form" novalidate (submit)="onSubmit($event)">
-      <div class="contact-form__field">
-        <label for="contact-name">NAME_INPUT</label>
-        <input id="contact-name" name="name" type="text" autocomplete="name" placeholder="Dein Name" />
-        <span class="contact-form__error" role="alert">{{ errors().name }}</span>
-      </div>
+<div class="panel__inner contact">
+  <h2 class="section-title outline-text">{{ t.contact.title }}</h2>
 
-      <div class="contact-form__field">
-        <label for="contact-email">EMAIL_INPUT</label>
-        <input id="contact-email" name="email" type="email" autocomplete="email"
-          placeholder="name@beispiel.de" />
-        <span class="contact-form__error" role="alert">{{ errors().email }}</span>
-      </div>
-
-      <div class="contact-form__field">
-        <label for="contact-message">MESSAGE_BODY</label>
-        <textarea id="contact-message" name="message" rows="5"
-          placeholder="// Beschreibe dein Projekt oder deine Anfrage..."></textarea>
-        <span class="contact-form__error" role="alert">{{ errors().message }}</span>
-      </div>
-
-      <div class="contact-form__field">
-        <div class="contact-form__checkbox">
-          <input id="contact-privacy" name="privacy" type="checkbox" />
-          <label for="contact-privacy">Ich stimme der Verarbeitung meiner Daten zur Kontaktaufnahme zu.</label>
-        </div>
-        <span class="contact-form__error" role="alert">{{ errors().privacy }}</span>
-      </div>
-
-      <button type="submit" class="contact-form__submit" [disabled]="state() === 'sending'">
-        <span class="contact-form__submit-text">{{ state() === 'sending' ? 'TRANSMITTING...' : 'TRANSMIT_MESSAGE' }}</span>
-      </button>
-
-      <p class="contact-form__status" role="status" aria-live="polite">
-        @if (state() === 'success') {
-          <span class="contact-form__status--ok">// Message received. Will respond within 48h.</span>
-        } @else if (state() === 'error') {
-          <span class="contact-form__status--error">// Transmission failed. Bitte versuche es später erneut oder nutze den E-Mail-Link unten.</span>
+  <form class="contact__form" novalidate (input)="onInput($event)" (change)="onInput($event)"
+    (focusout)="onBlur($event)" (submit)="onSubmit($event)">
+    <div>
+      <label class="sr-only" for="contact-name">{{ t.contact.name }}</label>
+      <input class="contact__input" id="contact-name" name="name" type="text" autocomplete="name"
+        [placeholder]="t.contact.name" />
+      <p class="contact__error" aria-live="polite">
+        @if (showError('name')) {
+          {{ t.contact.errors.name }}
         }
       </p>
-    </form>
+    </div>
 
-    <ul class="contact__links">
-      <li>
-        <a class="contact__link" href="https://github.com/BlissCrimson" target="_blank"
-          rel="noopener noreferrer">GITHUB</a>
-      </li>
-      <li>
-        <a class="contact__link" href="https://www.linkedin.com/in/matthias-tausch-641234364/"
-          target="_blank" rel="noopener noreferrer">LINKEDIN</a>
-      </li>
-      <li>
-        <a class="contact__link" href="mailto:matthias.tausch@matthias-tausch.com">EMAIL</a>
-      </li>
-    </ul>
+    <div>
+      <label class="sr-only" for="contact-email">{{ t.contact.email }}</label>
+      <input class="contact__input" id="contact-email" name="email" type="email" autocomplete="email"
+        [placeholder]="t.contact.email" />
+      <p class="contact__error" aria-live="polite">
+        @if (showError('email')) {
+          {{ t.contact.errors.email }}
+        }
+      </p>
+    </div>
+
+    <div>
+      <label class="sr-only" for="contact-message">{{ t.contact.message }}</label>
+      <textarea class="contact__input contact__input--area" id="contact-message" name="message" rows="5"
+        [placeholder]="t.contact.message"></textarea>
+      <p class="contact__error" aria-live="polite">
+        @if (showError('message')) {
+          {{ t.contact.errors.message }}
+        }
+      </p>
+    </div>
+
+    <div>
+      <div class="contact__privacy">
+        <input id="contact-privacy" name="privacy" type="checkbox" />
+        <label for="contact-privacy">
+          {{ t.contact.privacyStart }}
+          <a routerLink="/privacy">{{ t.contact.privacyLink }}</a>
+          {{ t.contact.privacyEnd }}
+        </label>
+      </div>
+      <p class="contact__error" aria-live="polite">
+        @if (showError('privacy')) {
+          {{ t.contact.errors.privacy }}
+        }
+      </p>
+    </div>
+
+    <button type="submit" class="btn-pill contact__submit" [disabled]="!valid() || state() === 'sending'">
+      {{ state() === 'sending' ? t.contact.sending : t.contact.send }}
+    </button>
+
+    <p class="contact__status" role="status">
+      @if (state() === 'success') {
+        {{ t.contact.success }}
+      } @else if (state() === 'error') {
+        {{ t.contact.failure }}
+      }
+    </p>
+  </form>
+
+  <div class="contact__info">
+    <p class="contact__lead">{{ t.contact.lead }}</p>
+    <p>{{ t.contact.text }}</p>
+    <a class="contact__mail" href="mailto:matthias.tausch@matthias-tausch.com">
+      E-Mail: matthias.tausch&#64;matthias-tausch.com
+    </a>
+    <app-arrow class="contact__back" target="top" direction="left" [label]="t.nav.toTop" />
   </div>
-</section>
+</div>
+
+<app-arrow class="contact__up" target="top" direction="up" [label]="t.nav.toTop" />
+<app-footer class="contact__footer" />

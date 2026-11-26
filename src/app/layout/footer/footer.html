@@ -1,10 +1,26 @@
+@let t = translation.texts();
+
+<ul class="footer-socials">
+  @for (social of socials; track social.key) {
+    <li>
+      <a [href]="social.url" target="_blank" rel="noopener noreferrer" [attr.aria-label]="t.social[social.key]">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path [attr.d]="social.path" /></svg>
+      </a>
+    </li>
+  }
+</ul>
+
 <footer class="site-footer">
-  <a routerLink="/imprint" class="site-footer__imprint">IMPRESSUM</a>
-  <div class="site-footer__socials">
-    <a class="site-footer__social" href="https://github.com/BlissCrimson" target="_blank" rel="noopener noreferrer"
-      aria-label="GitHub Profil">GITHUB</a>
-    <a class="site-footer__social" href="https://www.linkedin.com/in/matthias-tausch-641234364/" target="_blank"
-      rel="noopener noreferrer" aria-label="LinkedIn Profil">LINKEDIN</a>
-  </div>
-  <p class="site-footer__copyright">&copy; 2026 MATTHIAS_TAUSCH // ALL_RIGHTS_RESERVED</p>
+  <svg class="site-footer__logo" viewBox="0 0 120 80" aria-hidden="true">
+    <path id="footer-logo-arc" d="M12 72a48 48 0 0 1 96 0" fill="none" />
+    <text class="site-footer__logo-arc">
+      <textPath href="#footer-logo-arc" startOffset="50%" text-anchor="middle">frontend developer</textPath>
+    </text>
+    <text class="site-footer__logo-initials" x="60" y="68" text-anchor="middle">MT</text>
+  </svg>
+  <nav class="site-footer__links">
+    <a routerLink="/imprint">{{ t.footer.legal }}</a>
+    <a routerLink="/privacy">{{ t.footer.privacy }}</a>
+  </nav>
+  <p>&copy; Matthias Tausch {{ year }}</p>
 </footer>

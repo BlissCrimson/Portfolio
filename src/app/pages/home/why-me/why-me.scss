@@ -1,0 +1,61 @@
+@use '../../../../styles/abstract/indexAbstract';
+
+.why {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 44rem;
+
+  &__subtitle {
+    font-size: 2.75rem;
+    color: var(--color-accent);
+  }
+
+  &__facts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem 4rem;
+    text-align: center;
+
+    li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    svg {
+      width: 48px;
+      height: 48px;
+      fill: var(--color-accent);
+    }
+  }
+
+  &__cta {
+    align-self: flex-end;
+  }
+}
+
+.why-arrow {
+  position: absolute;
+  right: 1rem;
+  bottom: 14%;
+}
+
+@include indexAbstract.mobile {
+  .why {
+    &__subtitle,
+    &__cta {
+      align-self: center;
+    }
+
+    &__facts {
+      flex-direction: column;
+    }
+  }
+
+  .why-arrow {
+    display: none;
+  }
+}

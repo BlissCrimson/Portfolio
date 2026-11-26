@@ -1,0 +1,39 @@
+:host {
+  display: block;
+}
+
+.arrow {
+  display: grid;
+  place-items: center;
+  width: 80px;
+  height: 80px;
+  transition: transform 200ms ease;
+
+  &:hover {
+    transform: translateX(6px);
+  }
+
+  &--left {
+    transform: rotate(180deg);
+
+    &:hover {
+      transform: rotate(180deg) translateX(6px);
+    }
+  }
+
+  &--up {
+    transform: rotate(-90deg);
+
+    &:hover {
+      transform: rotate(-90deg) translateX(6px);
+    }
+  }
+
+  path {
+    fill: none;
+    stroke: var(--color-accent);
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+}

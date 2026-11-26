@@ -1,13 +1,13 @@
-<nav class="nav">
+@let t = translation.texts();
+
+<nav class="nav" [attr.aria-label]="t.nav.label">
   <ul class="nav__list">
     @for (link of links; track link.id) {
-      <li class="nav__item">
-        @if (active() === link.id) {
-          <span class="btn__nav--point"></span>
-        }
-        <a class="btn btn__nav" routerLink="/" [fragment]="link.id"
-           [class.is-active]="active() === link.id">
-          <span>{{ link.label }}</span>
+      <li>
+        <a class="nav__link" routerLink="/" [fragment]="link.id" [class.is-active]="active() === link.id"
+          [attr.aria-current]="active() === link.id ? 'true' : null" (click)="select(link.id)">
+          <span class="nav__label--desktop">{{ t.nav[link.label] }}</span>
+          <span class="nav__label--mobile">{{ t.nav[link.mobileLabel] }}</span>
         </a>
       </li>
     }

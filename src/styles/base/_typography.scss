@@ -1,62 +1,47 @@
 :root {
-  --font-display: 'orbitron', monospace;
-  --font-mono: 'share-tech-mono', monospace;
-  --font-body: 'rajdhani', sans-serif;
+  --font-main: 'quantico', sans-serif;
 }
 
 body {
-  font-family: var(--font-body);
+  font-family: var(--font-main);
   font-size: 18px;
-  color: var(--color-text-body);
+  line-height: 1.4;
+  color: var(--color-text);
 }
 
-.heading {
-  font-family: var(--font-display);
-  color: var(--color-text-heading);
-  letter-spacing: 0.05em;
+button,
+input,
+textarea {
+  font: inherit;
 }
 
-.text-muted {
-  color: var(--color-text-muted);
-}
-
+// Root-relative URLs: the files are served from public/ as they are
 @font-face {
-  font-family: 'orbitron';
-  src: url(../../../public/assets/fonts/orbitron/Orbitron-VariableFont_wght.ttf);
-  font-weight: 400 900;
-}
-
-@font-face {
-  font-family: 'share-tech-mono';
-  src: url(../../../public/assets/fonts/share-tech-mono/ShareTechMono-Regular.ttf);
-}
-
-@font-face {
-  font-family: 'rajdhani';
-  src: url(../../../public/assets/fonts/rajdhani/Rajdhani-Light.ttf);
-  font-weight: 300;
-}
-
-@font-face {
-  font-family: 'rajdhani';
-  src: url(../../../public/assets/fonts/rajdhani/Rajdhani-Regular.ttf);
+  font-family: 'quantico';
+  src: url('/assets/fonts/Quantico/Quantico-Regular.ttf');
   font-weight: 400;
+  font-display: swap;
 }
 
 @font-face {
-  font-family: 'rajdhani';
-  src: url(../../../public/assets/fonts/rajdhani/Rajdhani-Medium.ttf);
-  font-weight: 500;
+  font-family: 'quantico';
+  src: url('/assets/fonts/Quantico/Quantico-Italic.ttf');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
-  font-family: 'rajdhani';
-  src: url(../../../public/assets/fonts/rajdhani/Rajdhani-SemiBold.ttf);
-  font-weight: 600;
-}
-
-@font-face {
-  font-family: 'rajdhani';
-  src: url(../../../public/assets/fonts/rajdhani/Rajdhani-Bold.ttf);
+  font-family: 'quantico';
+  src: url('/assets/fonts/Quantico/Quantico-Bold.ttf');
   font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'quantico';
+  src: url('/assets/fonts/Quantico/Quantico-BoldItalic.ttf');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
 }

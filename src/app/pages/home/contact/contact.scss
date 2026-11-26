@@ -1,203 +1,150 @@
 @use '../../../../styles/abstract/indexAbstract';
 
-:host {
-  display: block;
-}
-
 .contact {
-  position: relative;
-  padding: indexAbstract.px-to-rem(112) indexAbstract.px-to-rem(24);
-  background-color: var(--color-surface);
-
-  // Decorative vertical line fading in from the bottom
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 1px;
-    height: indexAbstract.px-to-rem(192);
-    background: linear-gradient(to bottom, transparent, rgba(255, 0, 85, 0.2));
-    pointer-events: none;
-  }
-
-  &__inner {
-    position: relative;
-    z-index: 1;
-    max-width: indexAbstract.px-to-rem(896);
-    margin: 0 auto;
-  }
-
-  &__header {
+  &__form {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-bottom: indexAbstract.px-to-rem(56);
-    text-align: center;
+    gap: 0.15rem;
+    width: min(28rem, 100%);
   }
 
-  &__title {
-    margin-top: indexAbstract.px-to-rem(16);
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 700;
-    line-height: 1.2;
-  }
-
-  &__intro {
-    margin-top: indexAbstract.px-to-rem(12);
-    font-size: indexAbstract.px-to-rem(14);
-    color: #6b7494;
-  }
-
-  &__links {
-    display: flex;
-    justify-content: center;
-    gap: indexAbstract.px-to-rem(32);
-    margin-top: indexAbstract.px-to-rem(56);
-    padding: 0;
-  }
-
-  &__link {
-    font-family: var(--font-mono);
-    font-size: indexAbstract.px-to-rem(12);
-    letter-spacing: 0.1em;
-    color: #6b7494;
-    transition: color 150ms ease;
-
-    &:hover,
-    &:focus-visible {
-      color: var(--color-primary);
-    }
-  }
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: indexAbstract.px-to-rem(20);
-  max-width: indexAbstract.px-to-rem(576);
-  margin: 0 auto;
-
-  &__field {
-    display: flex;
-    flex-direction: column;
-    gap: indexAbstract.px-to-rem(6);
-
-    // Label turns pink while its input is focused
-    &:focus-within > label {
-      color: var(--color-danger);
-    }
-  }
-
-  label {
-    font-family: var(--font-mono);
-    font-size: indexAbstract.px-to-rem(12);
-    color: #6b7494;
-    transition: color 200ms ease;
-  }
-
-  input,
-  textarea {
+  &__input {
     width: 100%;
-    padding: indexAbstract.px-to-rem(12) indexAbstract.px-to-rem(16);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: var(--color-card);
-    color: var(--color-text-heading);
-    font-family: var(--font-mono);
-    font-size: indexAbstract.px-to-rem(14);
-    transition:
-      border-color 200ms ease,
-      box-shadow 200ms ease;
+    padding: 0.8rem 1.5rem;
+    border: 1px solid var(--color-accent);
+    border-radius: 2rem;
+    background: transparent;
+    color: var(--color-text);
 
-    &:focus-visible {
-      outline: none;
-      border-color: var(--color-danger);
-      box-shadow: 0 0 12px rgba(255, 0, 85, 0.13);
+    &::placeholder {
+      color: var(--color-placeholder);
     }
-  }
 
-  textarea {
-    resize: none;
+    &--area {
+      display: block;
+      height: clamp(7rem, 22vh, 15rem);
+      resize: none;
+    }
   }
 
   &__error {
-    min-height: indexAbstract.px-to-rem(16);
-    font-size: indexAbstract.px-to-rem(13);
-    color: var(--color-danger);
+    min-height: 1.1rem;
+    padding-left: 1.5rem;
+    font-size: 0.75rem;
+    color: var(--color-error);
   }
 
-  &__checkbox {
+  &__privacy {
     display: flex;
-    align-items: flex-start;
-    gap: indexAbstract.px-to-rem(8);
+    gap: 0.75rem;
+    font-size: 0.85rem;
+    color: var(--color-accent);
 
     input {
-      width: auto;
-      margin-top: indexAbstract.px-to-rem(4);
-      accent-color: var(--color-danger);
+      flex-shrink: 0;
+      width: 1.2rem;
+      height: 1.2rem;
+      accent-color: var(--color-accent);
     }
 
-    label {
-      font-family: var(--font-body);
-      font-size: indexAbstract.px-to-rem(14);
-      color: var(--color-text-dim);
+    a {
+      color: var(--color-text);
+      text-decoration: underline;
     }
   }
 
   &__submit {
-    position: relative;
-    overflow: hidden;
-    padding: indexAbstract.px-to-rem(16);
-    border: 1px solid var(--color-danger);
-    background: transparent;
-    color: var(--color-danger);
-    font-family: var(--font-mono);
-    font-size: indexAbstract.px-to-rem(14);
-    letter-spacing: 0.1em;
-    cursor: pointer;
-    transition: color 200ms ease;
-
-    // Fill that fades in on hover
-    &::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: var(--color-danger);
-      opacity: 0;
-      transition: opacity 200ms ease;
-    }
-
-    &:hover,
-    &:focus-visible {
-      color: var(--color-text);
-
-      &::before {
-        opacity: 1;
-      }
-    }
+    align-self: flex-end;
   }
 
   &__status {
-    min-height: indexAbstract.px-to-rem(20);
-    font-family: var(--font-mono);
-    font-size: indexAbstract.px-to-rem(13);
+    min-height: 1.2rem;
+    font-size: 0.85rem;
+    color: var(--color-accent);
+  }
 
-    &--ok {
-      color: var(--color-primary);
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    max-width: 22rem;
+  }
+
+  &__lead {
+    color: var(--color-accent-soft);
+  }
+
+  &__mail {
+    font-size: 0.9rem;
+    overflow-wrap: anywhere;
+  }
+}
+
+.contact__up {
+  display: none;
+}
+
+@include indexAbstract.desktop {
+  .contact__info {
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  .contact__back {
+    margin-top: 3rem;
+  }
+
+  .contact__footer {
+    padding: 0 6.5rem 1.25rem 2rem;
+  }
+
+  // Accent strip that closes the page on the right, mirroring the sidebar
+  :host::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 4rem;
+    background: linear-gradient(160deg, var(--color-accent) 50%, #7ea61c 100%);
+  }
+}
+
+@media (min-width: 801px) and (max-width: 1100px) {
+  .contact {
+    flex-wrap: wrap;
+  }
+}
+
+@include indexAbstract.mobile {
+  // The footer spans the full width
+  :host.panel {
+    padding: 3.5rem 0 0;
+  }
+
+  .contact {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1.25rem;
+
+    &__form {
+      order: 1;
+      width: 100%;
     }
 
-    &--error {
-      color: var(--color-danger);
+    &__info {
+      max-width: none;
+      margin-bottom: 2rem;
     }
   }
 
-  &__submit:disabled {
-    opacity: 0.6;
-    cursor: wait;
+  .contact__back {
+    display: none;
   }
 
-  &__submit-text {
-    position: relative;
-    z-index: 1;
+  .contact__up {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
   }
 }

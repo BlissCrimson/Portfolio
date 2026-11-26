@@ -1,0 +1,8 @@
+@let t = translation.texts();
+
+<main class="legal">
+  <app-arrow class="legal__back" target="top" direction="left" [label]="t.nav.back" />
+  <h1 class="legal__title outline-text">{{ t.privacy.title }}</h1>
+  <p>{{ t.privacy.placeholder }}</p>
+</main>
+<app-footer />

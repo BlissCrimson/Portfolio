@@ -1,47 +1,9 @@
-<main>
-  <app-hero></app-hero>
-
-  <section id="about" name="about" class="about cyber-grid">
-    <div class="about__inner">
-      <div class="about__content">
-        <span class="section-label">ABOUT_SYS</span>
-        <h2 class="about__title heading">
-          BUILDING AT THE <span class="glow-cyan">EDGE</span>
-        </h2>
-        <div class="about__text">
-          <p>
-            Ich bin Frontend Developer mit Fokus auf moderne, performante und
-            zugängliche Web-Anwendungen. Ich arbeite gerne mit TypeScript,
-            durchdachten UI-Konzepten und sauberem, wartbarem Code – von der
-            ersten Idee bis zum fertigen Interface.
-          </p>
-          <p class="about__status">// Aktuell: offen für neue Projekte &amp; Zusammenarbeit</p>
-        </div>
-
-        <ul class="about__tags">
-          @for (tag of tags; track tag) {
-            <li class="about__tag">{{ tag }}</li>
-          }
-        </ul>
-      </div>
-
-      <div class="about__cards">
-        @for (card of cards; track card.label) {
-          <article class="about__card">
-            <h3 class="about__card-label">[{{ card.label }}]</h3>
-            <p class="about__card-desc">{{ card.desc }}</p>
-          </article>
-        }
-      </div>
-    </div>
-  </section>
-
-  <app-projects></app-projects>
-
-  <app-tech-stack></app-tech-stack>
-
-  <app-reviews></app-reviews>
-
-  <app-contact></app-contact>
-
+<main #track class="track" tabindex="-1" (keydown.arrowRight)="onKey($event, 1)"
+  (keydown.arrowLeft)="onKey($event, -1)">
+  <app-hero id="top" class="panel panel--hero" />
+  <app-why-me id="about" class="panel panel--why" />
+  <app-tech-stack id="techstack" class="panel" />
+  <app-projects />
+  <app-reviews id="references" class="panel" />
+  <app-contact id="contact" class="panel" />
 </main>

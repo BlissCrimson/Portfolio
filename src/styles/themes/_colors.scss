@@ -1,31 +1,12 @@
 :root {
-  // Backgrounds
-  --color-surface: #0d0e15;
-  --color-surface-alt: #14172380;
-  --color-surface-dark: #0a0b11;
-  --color-card: #111320;
-  --color-muted: #1a1d2e;
-  --color-primary: #00f0ff;
-  --color-secondary: #0066ff;
-  --color-danger: #ff0055;
-
-  // Glow variants (used for box-shadow/text-shadow)
-  --color-primary-glow: rgba(0, 240, 255, 0.55);
-  --color-secondary-glow: rgba(0, 102, 255, 0.55);
-  --color-danger-glow: rgba(255, 0, 85, 0.55);
-
-  // Wash variants (subtle tint for large background areas, keeps the dark surface dominant)
-  --color-primary-wash: rgba(0, 240, 255, 0.12);
-  --color-secondary-wash: rgba(0, 102, 255, 0.12);
-  --color-danger-wash: rgba(255, 0, 85, 0.12);
-
-  // Text
+  --color-accent: #b5e93b;
+  --color-accent-soft: #d9f5a0;
+  --color-accent-card: rgba(181, 233, 59, 0.2);
+  --color-surface: #0a0a0a;
+  --color-surface-light: #272727;
   --color-text: #ffffff;
-  --color-text-muted: #9aa0b4;
-  --color-text-body: #c8d0e8;
-  --color-text-heading: #e8ecff;
-  --color-text-dim: #7a8199;
-
-  // Borders
-  --color-border: rgba(0, 240, 255, 0.35);
+  --color-text-on-accent: #3d4540;
+  --color-placeholder: #7c865c;
+  --color-disabled: #959595;
+  --color-error: #ff8a80;
 }

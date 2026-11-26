@@ -1,12 +1,18 @@
-// Diagonal cyberpunk gradient spanning the full page, corner to corner
-// Kept subtle (wash colors) so the dark surface stays dominant and the neon
-// accent colors used elsewhere (buttons, glows) still stand out.
+:root {
+  // Width of the sidebar; 0 on small screens where a top bar is used instead
+  --sidebar-width: clamp(96px, 12vw, 172px);
+  --topbar-height: 80px;
+
+  @media (max-width: 800px) {
+    --sidebar-width: 0px;
+  }
+
+  // Widescreen: the menu scales with the screen height
+  @media (min-width: 2400px) {
+    --sidebar-width: clamp(172px, 16vh, 280px);
+  }
+}
+
 body {
   background-color: var(--color-surface);
-  background-image: linear-gradient(
-    135deg,
-    var(--color-secondary-wash) 0%,
-    var(--color-primary-wash) 50%,
-    var(--color-danger-wash) 100%
-  );
 }

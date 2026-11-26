@@ -1,201 +1,74 @@
-// Global cyberpunk effects taken from the Figma design (glow, grid, scanlines, noise, brackets)
+// Shared building blocks of the design: panels, outlined headings, accent scrollbar
 
-// Neon text glow
-.glow-cyan {
-  text-shadow:
-    0 0 10px #00f0ff,
-    0 0 30px #00f0ff88,
-    0 0 60px #00f0ff44;
-}
-
-.glow-pink {
-  text-shadow:
-    0 0 10px #ff0055,
-    0 0 30px #ff005588,
-    0 0 60px #ff005544;
-}
-
-.glow-blue {
-  text-shadow:
-    0 0 10px #0066ff,
-    0 0 30px #0066ff88;
-}
-
-// Neon box glow
-.glow-box-cyan {
-  box-shadow:
-    0 0 8px #00f0ff44,
-    0 0 20px #00f0ff22,
-    inset 0 0 20px #00f0ff08;
-}
-
-.glow-box-pink {
-  box-shadow:
-    0 0 8px #ff005566,
-    0 0 25px #ff005533,
-    inset 0 0 20px #ff005508;
-}
-
-.glow-box-blue {
-  box-shadow:
-    0 0 8px #0066ff44,
-    0 0 20px #0066ff22,
-    inset 0 0 20px #0066ff08;
-}
-
-// Grid overlay
-.cyber-grid {
-  background-image:
-    linear-gradient(rgba(0, 240, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 240, 255, 0.04) 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-
-// Scanlines (parent needs position: relative)
-.scanlines {
+// One screen of the horizontal layout (desktop) or one block (mobile)
+.panel {
   position: relative;
+  background: linear-gradient(105deg, #111 0%, var(--color-surface-light) 45%, #0c0c0c 100%);
+  scroll-margin-top: var(--topbar-height);
 
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 2px,
-      rgba(0, 0, 0, 0.08) 2px,
-      rgba(0, 0, 0, 0.08) 4px
-    );
-    pointer-events: none;
-    z-index: 1;
+  @media (max-width: 800px) {
+    display: block;
+    padding: 3.5rem 1.25rem;
+  }
+
+  @media (min-width: 801px) {
+    display: flex;
+    flex: 0 0 100%;
+    flex-direction: column;
+    min-width: 0;
+    height: 100%;
+    overflow: hidden auto;
+    scroll-snap-align: start;
   }
 }
 
-// Fixed noise texture over the whole page
-.noise::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.4;
-}
-
-// Corner brackets (top-left / bottom-right)
-.bracket-corner {
-  position: relative;
-
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    border-color: var(--color-primary);
-    border-style: solid;
-  }
-
-  &::before {
-    top: -1px;
-    left: -1px;
-    border-width: 1px 0 0 1px;
-  }
-
-  &::after {
-    bottom: -1px;
-    right: -1px;
-    border-width: 0 1px 1px 0;
+// Centers the panel content; "safe" keeps the top reachable if it overflows
+.panel__inner {
+  @media (min-width: 801px) {
+    display: flex;
+    flex: 1 0 auto;
+    align-items: safe center;
+    justify-content: safe center;
+    gap: clamp(1.5rem, 3vw, 3.5rem);
+    padding: 5.5rem 6.5rem 3rem 2rem;
   }
 }
 
-// Section label: small line + mono caption (modifiers set the accent color)
-.section-label {
-  --label-color: var(--color-primary);
+.outline-text {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-accent);
+}
 
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  color: var(--label-color);
+.section-title {
+  font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+  line-height: 1;
+  white-space: nowrap;
+  margin-bottom: 1.5rem;
 
-  &::before {
-    content: '';
-    width: 1.5rem;
-    height: 1px;
-    background: var(--label-color);
-  }
-
-  &--blue {
-    --label-color: var(--color-secondary);
-  }
-
-  &--pink {
-    --label-color: var(--color-danger);
+  // Rotated next to the content on desktop
+  @media (min-width: 801px) {
+    flex-shrink: 0;
+    margin: 0;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
   }
 }
 
-// Shared keyframes
-@keyframes pulseDot {
-  0%,
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.5;
-    transform: scale(1.5);
-  }
-}
-
-@keyframes blink {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-// Thin scrollbar
 * {
   scrollbar-width: thin;
-  scrollbar-color: #00f0ff22 transparent;
+  scrollbar-color: var(--color-accent-card) transparent;
 }
 
-*::-webkit-scrollbar {
-  width: 4px;
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
 }
 
-*::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-*::-webkit-scrollbar-thumb {
-  background: #00f0ff33;
-  border-radius: 2px;
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }

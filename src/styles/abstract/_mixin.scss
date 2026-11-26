@@ -58,3 +58,22 @@ $breakpoints: (
   lg: 1024px,
   xl: 1440px,
 );
+
+// Design breakpoints: mobile/tablet up to 800px, widescreen from 2400px
+@mixin mobile {
+  @media (max-width: 800px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 801px) {
+    @content;
+  }
+}
+
+@mixin widescreen {
+  @media (min-width: 2400px) {
+    @content;
+  }
+}

@@ -1,80 +1,200 @@
 @use '../../../styles/abstract/indexAbstract';
 
+$sidebar-gradient: linear-gradient(160deg, var(--color-accent) 60%, #7ea61c 100%);
+
 .site-header {
-  @include indexAbstract.flex-row;
-  justify-content: space-between;
   position: fixed;
   top: 0;
+  bottom: 0;
   left: 0;
-  right: 0;
   z-index: 50;
-  padding: indexAbstract.px-to-rem(20) indexAbstract.px-to-rem(24);
-  background-color: transparent;
-  border-bottom: 1px solid transparent;
-  transition:
-    padding 300ms ease,
-    background-color 300ms ease,
-    border-color 300ms ease,
-    backdrop-filter 300ms ease;
-
-  &.is-scrolled {
-    padding-block: indexAbstract.px-to-rem(12);
-    background-color: rgba(13, 14, 21, 0.95);
-    border-bottom-color: rgba(0, 240, 255, 0.12);
-    backdrop-filter: blur(12px);
-  }
+  width: var(--sidebar-width);
+  background: var(--color-accent);
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
+  color: var(--color-text-on-accent);
 
   &__logo {
-    font-family: var(--font-display);
-    font-size: indexAbstract.px-to-rem(14);
-    letter-spacing: 0.1em;
-    color: var(--color-primary);
-  }
+    display: block;
+    width: 80%;
+    margin: 1.5rem auto 0;
 
-  &__logo-accent {
-    color: var(--color-danger);
-  }
-
-  &__cta {
-    position: relative;
-    overflow: hidden;
-    padding: indexAbstract.px-to-rem(8) indexAbstract.px-to-rem(16);
-    border: 1px solid var(--color-danger);
-    font-family: var(--font-mono);
-    font-size: indexAbstract.px-to-rem(12);
-    letter-spacing: 0.1em;
-    color: var(--color-danger);
-    transition: color 200ms ease;
-
-    // Fill that fades in on hover
-    &::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: var(--color-danger);
-      opacity: 0;
-      transition: opacity 200ms ease;
+    svg {
+      display: block;
+      width: 100%;
     }
+  }
 
-    &:hover,
-    &:focus-visible {
-      color: var(--color-text);
+  &__logo-arc {
+    font-size: 11px;
+    fill: currentColor;
+  }
 
-      &::before {
-        opacity: 1;
+  &__logo-initials {
+    font-size: 34px;
+    font-weight: 700;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.4;
+  }
+
+  &__toggle {
+    display: none;
+  }
+
+  &__tools {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  &__socials {
+    display: flex;
+    gap: 1rem;
+
+    a {
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--color-text);
+
+      &:hover {
+        background: var(--color-accent);
       }
     }
+
+    svg {
+      width: 20px;
+      height: 20px;
+      fill: #111;
+    }
   }
 
-  &__cta-text {
-    position: relative;
-    z-index: 1;
+  &__languages {
+    display: flex;
+
+    button {
+      padding: 0.25rem 0.6rem;
+      border: 0;
+      background: none;
+      font-weight: 700;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    button + button {
+      border-left: 1px solid currentColor;
+    }
+
+    button[aria-pressed='false'] {
+      opacity: 0.55;
+    }
   }
 
-  // Navigation and CTA are hidden on small screens (as in the design)
-  @include indexAbstract.respond(md) {
-    app-navbar,
-    &__cta {
+  @include indexAbstract.desktop {
+    app-navbar {
+      display: block;
+      height: 100%;
+    }
+
+    &__menu {
+      height: calc(100% - 9rem);
+    }
+
+    // Social links and language switch float over the page, top right
+    &__tools {
+      position: fixed;
+      top: 1.5rem;
+      right: clamp(5rem, 8vw, 9rem);
+      color: var(--color-text);
+    }
+  }
+
+  @include indexAbstract.widescreen {
+    &__tools {
+      right: 1.5rem;
+    }
+  }
+
+  @include indexAbstract.mobile {
+    right: 0;
+    bottom: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: var(--topbar-height);
+    padding: 0 1.25rem;
+    background: $sidebar-gradient;
+
+    &__logo {
+      width: 90px;
+      margin: 0;
+    }
+
+    &__toggle {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 9px;
+      width: 44px;
+      height: 44px;
+      padding: 0 6px;
+      border: 0;
+      background: none;
+      cursor: pointer;
+
+      span {
+        height: 2px;
+        background: var(--color-text-on-accent);
+        transition:
+          transform 200ms ease,
+          opacity 200ms ease;
+      }
+
+      // Turns into a close cross while the menu is open
+      &[aria-expanded='true'] {
+        span:nth-child(1) {
+          transform: translateY(11px) rotate(45deg);
+        }
+
+        span:nth-child(2) {
+          opacity: 0;
+        }
+
+        span:nth-child(3) {
+          transform: translateY(-11px) rotate(-45deg);
+        }
+      }
+    }
+
+    // Overlay below the top bar
+    &__menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      max-height: calc(100dvh - var(--topbar-height));
+      overflow-y: auto;
+      padding: 2rem 1rem 2.5rem;
+      border-radius: 0 0 2rem 2rem;
+      background: $sidebar-gradient;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+
+      &.is-open {
+        display: block;
+      }
+    }
+
+    &__tools {
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    // The social links sit above the footer on mobile
+    &__socials {
       display: none;
     }
   }

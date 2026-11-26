@@ -1,60 +1,70 @@
-<section id="projects" name="projects" class="projects">
-  <div class="projects__inner">
-    <header class="projects__header">
-      <div>
-        <span class="section-label">PROJECTS_DB</span>
-        <h2 class="projects__title heading">SELECTED <span class="glow-cyan">WORK</span></h2>
+@let t = translation.texts();
+
+@for (panel of panels; track panel.id; let first = $first) {
+  <section class="panel work" [class.work--more]="!first" [id]="panel.id">
+    <div class="panel__inner">
+      <!-- On mobile both panels read as one section, so only the first title is shown -->
+      <h2 class="section-title outline-text">{{ first ? t.work.title : t.work.titleMore }}</h2>
+
+      <div class="work__grid">
+        @for (project of panel.projects; track project.id) {
+          <article class="card" [class.is-expanded]="expanded().has(project.id)">
+            <header class="card__head">
+              <span class="card__number outline-text" aria-hidden="true">{{ project.id }}</span>
+              <h3 class="card__title">{{ project.title }}</h3>
+            </header>
+
+            <h4 class="card__label">{{ t.work.about }}</h4>
+            <p class="card__text">{{ t.work.descriptions[project.description] }}</p>
+
+            <div class="card__details" [id]="'project-details-' + project.id">
+              <h4 class="card__label">{{ t.work.tech }}</h4>
+              <p class="card__text">{{ project.tech }}</p>
+              <h4 class="card__label">{{ t.work.learned }}</h4>
+              <p class="card__text">{{ t.work.learnedPlaceholder }}</p>
+
+              <figure class="card__preview">
+                @for (image of project.images; track image) {
+                  <img [src]="image" [alt]="t.work.screenshot + ' ' + project.title" loading="lazy" />
+                }
+              </figure>
+
+              <div class="card__actions">
+                <a class="btn-pill btn-pill--ghost" [href]="project.repoUrl" target="_blank"
+                  rel="noopener noreferrer">GitHub</a>
+                @if (project.storeUrl) {
+                  <a class="btn-pill btn-pill--ghost" [href]="project.storeUrl" target="_blank"
+                    rel="noopener noreferrer">Play Store</a>
+                }
+                <a class="btn-pill" [href]="project.demoUrl" target="_blank"
+                  rel="noopener noreferrer">{{ t.work.live }}</a>
+              </div>
+            </div>
+
+            <button type="button" class="card__toggle" [attr.aria-expanded]="expanded().has(project.id)"
+              [attr.aria-controls]="'project-details-' + project.id" (click)="toggle(project.id)">
+              {{ expanded().has(project.id) ? t.work.showLess : t.work.showMore }}
+              <span aria-hidden="true">{{ expanded().has(project.id) ? '▲' : '▼' }}</span>
+            </button>
+          </article>
+        }
+
+        @if (panel.ongoing) {
+          <article class="ongoing">
+            <header class="card__head">
+              <span class="card__number outline-text" aria-hidden="true">5</span>
+              <h3 class="card__title">{{ t.work.ongoing }}</h3>
+            </header>
+            <p>{{ t.work.ongoingText }}</p>
+            <h4 class="card__label">{{ t.work.tech }}</h4>
+            <p class="card__text">{{ ongoingTech }}</p>
+            <a class="btn-pill ongoing__cta" routerLink="/" fragment="contact"
+              (click)="scrollToSection('contact')">{{ t.work.cta }}</a>
+          </article>
+        }
       </div>
-      <span class="projects__count">[{{ entryCount }} ENTRIES]</span>
-    </header>
-
-    <div class="projects__grid">
-      @for (project of projects; track project.id) {
-        <article class="projects__card bracket-corner" [attr.data-color]="project.color">
-          <div class="projects__card-head">
-            <div>
-              <span class="projects__meta">{{ project.id }} / {{ project.tag }}</span>
-              <h3 class="projects__name">{{ project.title }}</h3>
-            </div>
-            <div class="projects__side">
-              <span class="projects__status">{{ project.status }}</span>
-              <span class="projects__year">{{ project.year }}</span>
-            </div>
-          </div>
-
-          <figure class="projects__preview" [class.projects__preview--screens]="project.screens">
-            @if (project.screens) {
-              @for (screen of project.screens; track screen.src) {
-                <img [src]="screen.src" [alt]="screen.alt" loading="lazy" />
-              }
-            } @else {
-              <img [src]="project.image" [alt]="project.imageAlt" loading="lazy" />
-            }
-          </figure>
-
-          <p class="projects__desc">{{ project.description }}</p>
-
-          <ul class="projects__tech">
-            @for (tech of project.tech; track tech) {
-              <li class="projects__chip">{{ tech }}</li>
-            }
-          </ul>
-
-          <div class="projects__actions">
-            <a class="projects__link" [href]="project.repoUrl" target="_blank" rel="noopener noreferrer">
-              GITHUB
-            </a>
-            @if (project.storeUrl) {
-              <a class="projects__link" [href]="project.storeUrl" target="_blank" rel="noopener noreferrer">
-                PLAY_STORE ↗
-              </a>
-            }
-            <a class="projects__link" [href]="project.demoUrl" target="_blank" rel="noopener noreferrer">
-              LIVE_DEMO ↗
-            </a>
-          </div>
-        </article>
-      }
     </div>
-  </div>
-</section>
+
+    <app-arrow class="work__arrow" [target]="panel.next" />
+  </section>
+}
