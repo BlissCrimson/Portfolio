@@ -22,8 +22,14 @@
             </div>
           </div>
 
-          <figure class="projects__preview">
-            <img [src]="project.image" [alt]="project.imageAlt" loading="lazy" />
+          <figure class="projects__preview" [class.projects__preview--screens]="project.screens">
+            @if (project.screens) {
+              @for (screen of project.screens; track screen.src) {
+                <img [src]="screen.src" [alt]="screen.alt" loading="lazy" />
+              }
+            } @else {
+              <img [src]="project.image" [alt]="project.imageAlt" loading="lazy" />
+            }
           </figure>
 
           <p class="projects__desc">{{ project.description }}</p>
@@ -38,6 +44,11 @@
             <a class="projects__link" [href]="project.repoUrl" target="_blank" rel="noopener noreferrer">
               GITHUB
             </a>
+            @if (project.storeUrl) {
+              <a class="projects__link" [href]="project.storeUrl" target="_blank" rel="noopener noreferrer">
+                PLAY_STORE ↗
+              </a>
+            }
             <a class="projects__link" [href]="project.demoUrl" target="_blank" rel="noopener noreferrer">
               LIVE_DEMO ↗
             </a>

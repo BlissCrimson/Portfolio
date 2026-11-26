@@ -11,9 +11,12 @@ type Project = {
   description: string;
   tech: readonly string[];
   color: ProjectColor;
-  image: string;
-  imageAlt: string;
+  // A card uses either a single landscape image or several portrait screens
+  image?: string;
+  imageAlt?: string;
+  screens?: readonly { src: string; alt: string }[];
   repoUrl: string;
+  storeUrl?: string;
   demoUrl: string;
 };
 
@@ -70,6 +73,35 @@ export class Projects {
       imageAlt: 'Screenshot der Pokedex Web-App',
       repoUrl: 'https://github.com/BlissCrimson/Pokedex',
       demoUrl: 'https://pokedex.matthias-tausch.com',
+    },
+    {
+      id: '04',
+      title: 'WHAT_EAT?',
+      tag: 'Android App',
+      year: '2026',
+      status: 'LIVE',
+      description:
+        'Android-App, die per Knopfdruck ein zufälliges Gericht aus der eigenen Liste vorschlägt. Gerichte lassen sich selbst verwalten und werden lokal auf dem Gerät gespeichert.',
+      tech: ['ANGULAR', 'TYPESCRIPT', 'CAPACITOR', 'ANDROID'],
+      color: 'cyan',
+      screens: [
+        {
+          src: 'assets/img/projects/what_eat_home.png',
+          alt: 'Startbildschirm der App What Eat?',
+        },
+        {
+          src: 'assets/img/projects/what_eat_dish_list.png',
+          alt: 'Gerichteliste der App What Eat?',
+        },
+        {
+          src: 'assets/img/projects/what_eat_add_dish.png',
+          alt: 'Neues Gericht hinzufügen in der App What Eat?',
+        },
+      ],
+      repoUrl: 'https://github.com/BlissCrimson/what-eat',
+      storeUrl: 'https://play.google.com/store/apps/details?id=de.janusnova.whateat',
+      // Subdomain still has to be set up
+      demoUrl: 'https://whateat.matthias-tausch.com',
     },
   ];
 

@@ -39,11 +39,13 @@
 
   &__grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    // minmax(0, 1fr) keeps image sizes from stretching a column
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 1fr; // all rows share the same height
     gap: indexAbstract.px-to-rem(24);
 
     @include indexAbstract.respond(md) {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
     }
   }
 
@@ -139,15 +141,31 @@
     overflow: hidden;
     border: 1px solid rgba(0, 240, 255, 0.2);
     background: var(--color-surface);
-    aspect-ratio: 16 / 7;
+    // Matches the El Pollo Loco screenshot; other images are fitted without cropping
+    aspect-ratio: 1007 / 713;
 
     img {
       display: block;
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      object-position: top;
+      object-fit: contain;
+      object-position: center;
       transition: transform 400ms ease;
+    }
+
+    // Portrait screenshots of mobile apps, shown side by side without cropping
+    &--screens {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-rows: minmax(0, 1fr); // row must not grow with the screenshot height
+      gap: indexAbstract.px-to-rem(16);
+      padding: indexAbstract.px-to-rem(12);
+
+      img {
+        min-height: 0;
+        object-fit: contain;
+        object-position: center;
+      }
     }
   }
 
