@@ -23,11 +23,13 @@
               <h4 class="card__label">{{ t.work.learned }}</h4>
               <p class="card__text">{{ t.work.learnedTexts[project.description] }}</p>
 
-              <figure class="card__preview">
-                @for (image of project.images; track image) {
-                  <img [src]="image" [alt]="t.work.screenshot + ' ' + project.title" loading="lazy" />
-                }
-              </figure>
+              @if (project.images.length) {
+                <figure class="card__preview">
+                  @for (image of project.images; track image) {
+                    <img [src]="image" [alt]="t.work.screenshot + ' ' + project.title" loading="lazy" />
+                  }
+                </figure>
+              }
 
               <div class="card__actions">
                 <a class="btn-pill btn-pill--ghost" [href]="project.repoUrl" target="_blank"
@@ -55,11 +57,14 @@
               <span class="card__number outline-text" aria-hidden="true">5</span>
               <h3 class="card__title">{{ t.work.ongoing }}</h3>
             </header>
-            <p>{{ t.work.ongoingText }}</p>
+            <h4 class="card__label">{{ t.work.about }}</h4>
+            <p class="card__text">{{ t.work.ongoingText }}</p>
             <h4 class="card__label">{{ t.work.tech }}</h4>
             <p class="card__text">{{ ongoingTech }}</p>
-            <a class="btn-pill ongoing__cta" routerLink="/" fragment="contact"
-              (click)="scrollToSection('contact')">{{ t.work.cta }}</a>
+            <div class="card__actions">
+              <a class="btn-pill" routerLink="/" fragment="contact"
+                (click)="scrollToSection('contact')">{{ t.work.cta }}</a>
+            </div>
           </article>
         }
       </div>

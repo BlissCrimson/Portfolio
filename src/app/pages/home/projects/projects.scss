@@ -11,14 +11,18 @@
   gap: 1.5rem;
 }
 
-.card {
+// Same box for finished projects and the ongoing one, with or without images
+.card,
+.ongoing {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   padding: 1.25rem;
   border-radius: 1.5rem;
   background: var(--color-accent-card);
+}
 
+.card {
   &__head {
     display: flex;
     align-items: center;
@@ -100,16 +104,9 @@
   }
 }
 
-.ongoing {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1rem;
-  padding: 1.25rem;
-
-  &__cta {
-    align-self: center;
-  }
+// Without a preview the buttons still stick to the bottom of the card
+.card__text + .card__actions {
+  margin-top: auto;
 }
 
 .work__arrow {
@@ -164,9 +161,5 @@
     color: var(--color-accent);
     text-decoration: underline;
     cursor: pointer;
-  }
-
-  .ongoing {
-    padding: 1rem 0;
   }
 }

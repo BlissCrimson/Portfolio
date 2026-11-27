@@ -79,3 +79,5 @@
 2026-11-26 - Referenzen: Klammer-Platzhalter durch drei sichtbar als Beispiel gekennzeichnete Referenzen (DE/EN) ersetzt (dictionaries.ts: references.items + exampleLabel; reviews.html). TODO: später durch echte Referenzen ersetzen.
 2026-11-26 - Neu: pnpm-workspace.yaml mit allowBuilds (@parcel/watcher, esbuild, lmdb, msgpackr-extract). pnpm 11 bricht 'pnpm install' sonst mit ERR_PNPM_IGNORED_BUILDS ab (CI-Workflow Deploy). Nicht lokal getestet.
 2026-11-26 - CLAUDE.md an den Angular-Stack angepasst (Tech Stack, Befehle, Architektur, Deployment; allowBuilds-Regel ergänzt).
+2026-11-27 - projects.scss: Karte "Aktuelles Projekt" (.ongoing) hat jetzt denselben Hintergrund, Eckenradius und Innenabstand wie die anderen Projektkarten (gemeinsame Regel .card, .ongoing); mobilen padding-Override entfernt.
+2026-11-27 - projects.html/.scss: Karte "Aktuelles Projekt" wie die anderen aufgebaut (Nummer/Titel oben, Label "Über das Projekt", Button unten in .card__actions); Bildbereich wird ohne Bilder nicht mehr gerendert, Buttons bleiben unten; .ongoing__cta entfernt.
