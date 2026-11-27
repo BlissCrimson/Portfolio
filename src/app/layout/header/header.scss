@@ -1,6 +1,6 @@
 @use '../../../styles/abstract/indexAbstract';
 
-$sidebar-gradient: linear-gradient(160deg, var(--color-accent) 60%, #7ea61c 100%);
+$sidebar-gradient: linear-gradient(160deg, var(--color-accent) 60%, var(--color-accent-dark) 100%);
 
 .site-header {
   position: fixed;
@@ -87,8 +87,9 @@ $sidebar-gradient: linear-gradient(160deg, var(--color-accent) 60%, #7ea61c 100%
       border-left: 1px solid currentColor;
     }
 
-    button[aria-pressed='false'] {
-      opacity: 0.55;
+    button:hover,
+    button[aria-pressed='true'] {
+      color: var(--color-accent);
     }
   }
 
@@ -111,9 +112,10 @@ $sidebar-gradient: linear-gradient(160deg, var(--color-accent) 60%, #7ea61c 100%
     }
   }
 
+  // Stays left of the accent strip on the contact panel
   @include indexAbstract.widescreen {
     &__tools {
-      right: 1.5rem;
+      right: 5rem;
     }
   }
 
@@ -190,7 +192,19 @@ $sidebar-gradient: linear-gradient(160deg, var(--color-accent) 60%, #7ea61c 100%
 
     &__tools {
       justify-content: center;
-      margin-top: 2rem;
+      margin-top: 4.5rem;
+    }
+
+    // On the accent overlay the selection is shown as outlined text
+    &__languages button {
+      &:hover {
+        color: var(--color-text);
+      }
+
+      &[aria-pressed='true'] {
+        color: transparent;
+        -webkit-text-stroke: 1px var(--color-text-on-accent);
+      }
     }
 
     // The social links sit above the footer on mobile

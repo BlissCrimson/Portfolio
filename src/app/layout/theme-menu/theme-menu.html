@@ -1,0 +1,18 @@
+@let t = translation.texts();
+
+<button #toggle type="button" class="theme-menu__toggle" aria-controls="theme-list" [attr.aria-expanded]="open()"
+  [attr.aria-label]="t.theme.menu + ': ' + t.theme[theme.current()]" (click)="open.set(!open())">
+  <span class="theme-menu__lines"><span></span><span></span><span></span></span>
+  <!-- Shows the active theme while the menu is closed -->
+  <span [class]="'theme-menu__current theme-menu__current--' + theme.current()"></span>
+</button>
+
+<ul id="theme-list" class="theme-menu__list" [class.is-open]="open()">
+  @for (name of themes; track name) {
+    <li>
+      <button type="button" [class]="'theme-menu__swatch theme-menu__swatch--' + name"
+        [attr.aria-label]="t.theme[name]" [title]="t.theme[name]" [attr.aria-pressed]="theme.current() === name"
+        (click)="select(name)"></button>
+    </li>
+  }
+</ul>

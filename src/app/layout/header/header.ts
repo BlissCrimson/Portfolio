@@ -4,9 +4,10 @@ import { scrollToSection } from '../../shared/components/arrow/arrow';
 import { Language, Translation } from '../../shared/services/translation';
 import { Navbar } from '../navbar/navbar';
 import { socialLinks } from '../social-links';
+import { ThemeMenu } from '../theme-menu/theme-menu';
 
 @Component({
-  imports: [Navbar, RouterLink],
+  imports: [Navbar, RouterLink, ThemeMenu],
   selector: 'app-header',
   styleUrl: './header.scss',
   templateUrl: './header.html',

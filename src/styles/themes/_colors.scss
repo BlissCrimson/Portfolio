@@ -1,12 +1,10 @@
+// Colours shared by all themes; each palette has its own file in this folder
 :root {
-  --color-accent: #b5e93b;
-  --color-accent-soft: #d9f5a0;
-  --color-accent-card: rgba(181, 233, 59, 0.2);
-  --color-surface: #0a0a0a;
-  --color-surface-light: #272727;
+  // Mixed from the accent of the active theme
+  --color-accent-card: color-mix(in srgb, var(--color-accent) 20%, transparent);
+  --color-card: color-mix(in srgb, var(--color-accent) 50%, transparent);
   --color-text: #ffffff;
   --color-text-on-accent: #3d4540;
-  --color-placeholder: #7c865c;
-  --color-disabled: #959595;
-  --color-error: #ff8a80;
+  --color-disabled: #9d9d9d;
+  --color-error: #fd2e12;
 }

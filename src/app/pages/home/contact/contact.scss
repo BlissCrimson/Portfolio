@@ -20,6 +20,15 @@
       color: var(--color-placeholder);
     }
 
+    &[aria-invalid='true'] {
+      border-color: var(--color-error);
+
+      &::placeholder {
+        font-size: 0.75rem;
+        color: var(--color-error);
+      }
+    }
+
     &--area {
       display: block;
       height: clamp(7rem, 22vh, 15rem);
@@ -34,6 +43,15 @@
     color: var(--color-error);
   }
 
+  // An empty field shows the message as placeholder; keep it for screen readers only
+  &__input:placeholder-shown + &__error {
+    clip-path: inset(50%);
+  }
+
+  &__field {
+    position: relative;
+  }
+
   &__privacy {
     display: flex;
     gap: 0.75rem;
@@ -41,15 +59,55 @@
     color: var(--color-accent);
 
     input {
+      display: grid;
       flex-shrink: 0;
+      place-content: center;
       width: 1.2rem;
       height: 1.2rem;
-      accent-color: var(--color-accent);
+      appearance: none;
+      border: 2px solid var(--color-text);
+      border-radius: 3px;
+      cursor: pointer;
+
+      &:hover {
+        background: radial-gradient(var(--color-accent), transparent);
+      }
+
+      &:checked {
+        border-color: var(--color-accent);
+
+        &::after {
+          content: '';
+          width: 0.35rem;
+          height: 0.65rem;
+          margin-top: -0.15rem;
+          border: solid var(--color-accent);
+          border-width: 0 2px 2px 0;
+          transform: rotate(45deg);
+        }
+
+        &:hover,
+        &:hover::after {
+          border-color: var(--color-text);
+        }
+      }
+
+      &[aria-invalid='true'] {
+        border-color: var(--color-error);
+      }
     }
 
     a {
       color: var(--color-text);
-      text-decoration: underline;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      &:active {
+        color: var(--color-accent);
+        text-decoration: underline;
+      }
     }
   }
 
@@ -74,9 +132,27 @@
     color: var(--color-accent-soft);
   }
 
-  &__mail {
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
     font-size: 0.9rem;
     overflow-wrap: anywhere;
+
+    svg {
+      flex-shrink: 0;
+      width: 1.1rem;
+      fill: currentColor;
+    }
+
+    &:hover {
+      color: var(--color-accent-soft);
+    }
+
+    &:active {
+      color: var(--color-accent);
+      text-decoration: underline;
+    }
   }
 }
 
@@ -106,7 +182,7 @@
     right: 0;
     bottom: 0;
     width: 4rem;
-    background: linear-gradient(160deg, var(--color-accent) 50%, #7ea61c 100%);
+    background: linear-gradient(160deg, var(--color-accent) 50%, var(--color-accent-dark) 100%);
   }
 }
 
@@ -135,6 +211,43 @@
     &__info {
       max-width: none;
       margin-bottom: 2rem;
+    }
+  }
+
+  // Check mark or exclamation mark inside the field
+  .contact__field {
+    .contact__input {
+      padding-right: 3rem;
+    }
+
+    &.is-valid::after,
+    &.is-invalid::after {
+      content: '';
+      position: absolute;
+      right: 1.25rem;
+      pointer-events: none;
+    }
+
+    &.is-valid::after {
+      top: 0.95rem;
+      width: 0.45rem;
+      height: 0.95rem;
+      border: solid var(--color-text);
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+
+    &.is-invalid::after {
+      top: 1rem;
+      width: 3px;
+      height: 1.25rem;
+      background: linear-gradient(var(--color-error) 68%, #0000 68% 82%, var(--color-error) 82%);
+    }
+
+    // The message field shows its check mark at the bottom
+    &--area.is-valid::after {
+      top: auto;
+      bottom: 2.1rem;
     }
   }
 

@@ -1,0 +1,20 @@
+// Yellow palette (colour option 02)
+
+// Swatch colours of the theme menu; needed even while another theme is active
+:root {
+  --theme-yellow-bg: #16180a;
+  --theme-yellow-accent: #ddcf00;
+}
+
+:root[data-theme='yellow'] {
+  --color-bg: var(--theme-yellow-bg);
+  --color-accent: var(--theme-yellow-accent);
+  --color-accent-dark: #998f00;
+  --color-accent-soft: #f2ea8f;
+  --color-surface: var(--theme-yellow-bg);
+  --color-surface-light: #2a2c1d;
+  --color-panel-start: #1a1c0d;
+  --color-panel-end: #111308;
+  --color-button-text: var(--theme-yellow-bg);
+  --color-placeholder: #86825c;
+}

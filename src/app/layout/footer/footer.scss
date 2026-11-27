@@ -23,8 +23,23 @@
     display: flex;
     gap: 1.75rem;
 
-    a:hover {
+    a:active,
+    a.is-active {
       text-decoration: underline;
+    }
+  }
+}
+
+// The mobile footer sits on the accent colour, so these colours are desktop only
+@include indexAbstract.desktop {
+  .site-footer__links a {
+    &:hover {
+      color: var(--color-accent-soft);
+    }
+
+    &:active,
+    &.is-active {
+      color: var(--color-accent);
     }
   }
 }
@@ -43,6 +58,10 @@
       height: 44px;
       border-radius: 50%;
       background: var(--color-text);
+
+      &:hover {
+        background: var(--color-accent);
+      }
     }
 
     svg {
@@ -56,7 +75,7 @@
     flex-direction: column;
     align-items: center;
     padding: 1.25rem;
-    background: linear-gradient(160deg, var(--color-accent) 60%, #7ea61c 100%);
+    background: linear-gradient(160deg, var(--color-accent) 60%, var(--color-accent-dark) 100%);
     color: var(--color-text-on-accent);
 
     &__logo {

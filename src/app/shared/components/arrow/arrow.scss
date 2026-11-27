@@ -7,26 +7,21 @@
   place-items: center;
   width: 80px;
   height: 80px;
-  transition: transform 200ms ease;
 
-  &:hover {
-    transform: translateX(6px);
+  svg {
+    transition: filter 200ms ease;
+  }
+
+  &:hover svg {
+    filter: drop-shadow(0 0 8px var(--color-accent));
   }
 
   &--left {
     transform: rotate(180deg);
-
-    &:hover {
-      transform: rotate(180deg) translateX(6px);
-    }
   }
 
   &--up {
     transform: rotate(-90deg);
-
-    &:hover {
-      transform: rotate(-90deg) translateX(6px);
-    }
   }
 
   path {

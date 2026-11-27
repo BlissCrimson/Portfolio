@@ -1,0 +1,20 @@
+// Turquoise palette (colour option 01)
+
+// Swatch colours of the theme menu; needed even while another theme is active
+:root {
+  --theme-turquoise-bg: #0b1b10;
+  --theme-turquoise-accent: #26e6cf;
+}
+
+:root[data-theme='turquoise'] {
+  --color-bg: var(--theme-turquoise-bg);
+  --color-accent: var(--theme-turquoise-accent);
+  --color-accent-dark: #179c8d;
+  --color-accent-soft: #a8f5eb;
+  --color-surface: var(--theme-turquoise-bg);
+  --color-surface-light: #1f2f24;
+  --color-panel-start: #0e2014;
+  --color-panel-end: #08150c;
+  --color-button-text: var(--theme-turquoise-bg);
+  --color-placeholder: #5c867f;
+}

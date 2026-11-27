@@ -9,21 +9,22 @@
   border-radius: 999px;
   background: var(--color-accent);
   font-size: 1rem;
-  color: #1d2210;
+  color: var(--color-button-text);
   cursor: pointer;
   transition:
     background-color 200ms ease,
-    box-shadow 200ms ease;
+    border-color 200ms ease;
 
   &:hover {
-    box-shadow: 0 0 14px rgba(181, 233, 59, 0.5);
+    background: linear-gradient(170deg, var(--color-accent) 40%, var(--color-accent-dark) 100%);
   }
 
   &--ghost {
     background: transparent;
-    color: var(--color-accent);
+    color: var(--color-text);
 
     &:hover {
+      border-color: var(--color-accent-soft);
       background: var(--color-accent-card);
     }
   }
@@ -33,6 +34,5 @@
     background: var(--color-disabled);
     color: #3d3d3d;
     cursor: not-allowed;
-    box-shadow: none;
   }
 }

@@ -19,7 +19,7 @@
   gap: 0.5rem;
   padding: 1.25rem;
   border-radius: 1.5rem;
-  background: var(--color-accent-card);
+  background: var(--color-card);
 }
 
 .card {
@@ -83,6 +83,18 @@
       height: 100%;
       min-height: 0;
       object-fit: contain;
+      transition: opacity 200ms ease;
+    }
+
+    // Slightly tinted by the card colour until hovered (not on touch screens)
+    @media (hover: hover) {
+      img {
+        opacity: 0.9;
+      }
+
+      img:hover {
+        opacity: 1;
+      }
     }
   }
 

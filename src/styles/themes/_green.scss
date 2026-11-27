@@ -1,0 +1,21 @@
+// Green palette (default)
+
+// Swatch colours of the theme menu; needed even while another theme is active
+:root {
+  --theme-green-bg: #000000;
+  --theme-green-accent: #b5e93b;
+}
+
+:root,
+:root[data-theme='green'] {
+  --color-bg: var(--theme-green-bg);
+  --color-accent: var(--theme-green-accent);
+  --color-accent-dark: #7ea61c;
+  --color-accent-soft: #d9f5a0;
+  --color-surface: #0a0a0a;
+  --color-surface-light: #272727;
+  --color-panel-start: #111111;
+  --color-panel-end: #0c0c0c;
+  --color-button-text: #1d2210;
+  --color-placeholder: #7c865c;
+}

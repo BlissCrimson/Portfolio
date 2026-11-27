@@ -27,6 +27,7 @@ const de = {
     toTop: 'Zum Seitenanfang',
     back: 'Zurück zur Startseite',
   },
+  theme: { menu: 'Farbschema wählen', green: 'Grün', turquoise: 'Türkis', yellow: 'Gelb' },
   social: { email: 'E-Mail schreiben', linkedin: 'LinkedIn-Profil', github: 'GitHub-Profil' },
   hero: { photoAlt: 'Porträt von Matthias Tausch', city: 'Husum' },
   why: {
@@ -217,9 +218,9 @@ const de = {
         ],
       },
       {
-        title: 'Lokale Speicherung der Spracheinstellung',
+        title: 'Lokale Speicherung von Einstellungen',
         paragraphs: [
-          'Diese Website speichert die von Ihnen gewählte Sprache (Deutsch oder Englisch) im lokalen Speicher Ihres Browsers (localStorage). Der Eintrag verbleibt auf Ihrem Gerät und wird nicht an uns übertragen. Es werden keine Cookies gesetzt und keine Tracking- oder Analysewerkzeuge eingesetzt.',
+          'Diese Website speichert die von Ihnen gewählte Sprache (Deutsch oder Englisch) und das gewählte Farbschema im lokalen Speicher Ihres Browsers (localStorage). Die Einträge verbleiben auf Ihrem Gerät und werden nicht an uns übertragen. Es werden keine Cookies gesetzt und keine Tracking- oder Analysewerkzeuge eingesetzt.',
         ],
       },
       {
@@ -282,6 +283,7 @@ const en: Dictionary = {
     toTop: 'Back to top',
     back: 'Back to home',
   },
+  theme: { menu: 'Choose colour scheme', green: 'Green', turquoise: 'Turquoise', yellow: 'Yellow' },
   social: { email: 'Send an email', linkedin: 'LinkedIn profile', github: 'GitHub profile' },
   hero: { photoAlt: 'Portrait of Matthias Tausch', city: 'Husum' },
   why: {
@@ -470,9 +472,9 @@ const en: Dictionary = {
         ],
       },
       {
-        title: 'Local storage of the language setting',
+        title: 'Local storage of settings',
         paragraphs: [
-          'This website stores the language you have chosen (German or English) in your browser local storage (localStorage). The entry stays on your device and is not transmitted to us. No cookies are set and no tracking or analytics tools are used.',
+          'This website stores the language you have chosen (German or English) and your colour scheme in your browser local storage (localStorage). The entries stay on your device and are not transmitted to us. No cookies are set and no tracking or analytics tools are used.',
         ],
       },
       {

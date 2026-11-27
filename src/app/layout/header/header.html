@@ -33,6 +33,8 @@
         }
       </ul>
 
+      <app-theme-menu />
+
       <div class="site-header__languages" role="group" [attr.aria-label]="t.nav.language">
         @for (language of languages; track language) {
           <button type="button" [attr.aria-pressed]="translation.language() === language"

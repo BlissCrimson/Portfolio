@@ -12,12 +12,15 @@
     display: block;
     padding: 0.5rem;
     font-size: 1.5rem;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 0.4em;
 
-    &:hover,
+    &:hover {
+      color: var(--color-text);
+    }
+
+    // Active entry: outlined text
     &.is-active {
-      text-decoration-line: underline;
+      color: transparent;
+      -webkit-text-stroke: 1px var(--color-text-on-accent);
     }
   }
 

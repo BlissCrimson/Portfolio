@@ -1,10 +1,10 @@
 import { Component, inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { Translation } from '../../shared/services/translation';
 import { socialLinks } from '../social-links';
 
 @Component({
-  imports: [RouterLink],
+  imports: [RouterLink, RouterLinkActive],
   selector: 'app-footer',
   styleUrl: './footer.scss',
   templateUrl: './footer.html',

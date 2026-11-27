@@ -28,7 +28,26 @@
     svg {
       width: 48px;
       height: 48px;
+      overflow: visible;
       fill: var(--color-accent);
+    }
+  }
+
+  // White icon details; the extra ones only appear on hover
+  &__detail {
+    fill: var(--color-text);
+  }
+
+  &__extra {
+    opacity: 0;
+    transition: opacity 200ms ease;
+  }
+
+  &__facts li:hover {
+    color: var(--color-accent);
+
+    .why__extra {
+      opacity: 1;
     }
   }
 

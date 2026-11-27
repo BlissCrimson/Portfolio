@@ -1,8 +1,8 @@
 @use '../../../../styles/abstract/indexAbstract';
 
-// Same pure black as the background of the cut-out photo, so no image edge is visible
+// Flat theme background; "screen" below hides the black baked into the cut-out photo
 :host.panel {
-  background: #000;
+  background: var(--color-bg);
 }
 
 .hero {
@@ -12,6 +12,7 @@
     display: block;
     object-fit: cover;
     object-position: 50% 20%;
+    mix-blend-mode: screen;
   }
 
   &__name {

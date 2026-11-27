@@ -38,6 +38,10 @@ export class Contact {
     return this.touched().has(field) && this.invalid()[field];
   }
 
+  protected showValid(field: FieldName): boolean {
+    return this.touched().has(field) && !this.invalid()[field];
+  }
+
   protected onInput(event: Event): void {
     this.values.set(this.readValues(event.currentTarget as HTMLFormElement));
   }

@@ -29,6 +29,12 @@
       width: 56px;
       height: 56px;
       fill: var(--color-accent);
+      transition: filter 200ms ease;
+    }
+
+    &:hover svg,
+    &:hover .skills__question {
+      filter: drop-shadow(0 0 10px var(--color-accent));
     }
   }
 

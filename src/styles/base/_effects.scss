@@ -3,7 +3,12 @@
 // One screen of the horizontal layout (desktop) or one block (mobile)
 .panel {
   position: relative;
-  background: linear-gradient(105deg, #111 0%, var(--color-surface-light) 45%, #0c0c0c 100%);
+  background: linear-gradient(
+    105deg,
+    var(--color-panel-start) 0%,
+    var(--color-surface-light) 45%,
+    var(--color-panel-end) 100%
+  );
   scroll-margin-top: var(--topbar-height);
 
   @media (max-width: 800px) {
