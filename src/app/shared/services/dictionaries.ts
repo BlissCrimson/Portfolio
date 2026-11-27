@@ -56,14 +56,16 @@ const de = {
       join: 'Arbeit im Team, JavaScript, Authentifizierung und Datenspeicherung mit Firebase sowie die Abstimmung und Kommunikation in der Gruppe.',
       pollo: 'Objektorientierte Programmierung mit JavaScript.',
       pokedex: 'Der Umgang mit einer API: Daten abrufen, auslesen und übersichtlich darstellen.',
-      whatEat: 'Eine App von der Entwicklung bis zur Veröffentlichung: Arbeit mit Capacitor, Android Studio und der Google Play Console.',
+      whatEat:
+        'Eine App von der Entwicklung bis zur Veröffentlichung: Arbeit mit Capacitor, Android Studio und der Google Play Console.',
     },
     live: 'Live testen',
     showMore: 'Mehr anzeigen',
     showLess: 'Weniger anzeigen',
     screenshot: 'Screenshot von',
     ongoing: 'Aktuelles Projekt',
-    ongoingText: 'Derzeit arbeite ich an der Brunnen Bau Suite, einer Webanwendung und App für das professionelle Handwerk. Ich setze dabei die Wünsche echter Kunden um.',
+    ongoingText:
+      'Derzeit arbeite ich an der Brunnen Bau Suite, einer Webanwendung und App für das professionelle Handwerk. Ich setze dabei die Wünsche echter Kunden um.',
     cta: 'Lass uns reden',
     descriptions: {
       join: 'Kanban-Board zur Aufgabenverwaltung mit Drag & Drop, Kontaktverwaltung und Login/Gastzugang. Die Daten werden über Firebase gespeichert.',
@@ -82,17 +84,21 @@ const de = {
     exampleLabel: 'Beispiel',
     items: [
       {
-        quote: '„Die Zusammenarbeit war zuverlässig und gut abgestimmt. Aufgaben wurden sauber umgesetzt und Rückfragen früh geklärt.“',
-        name: 'Beispielperson A',
+        quote:
+          '„Matthias ist ein großartiger Teamkollege in einem Projekt. Beim gemeinsamen Aufbau unseres Kanban-Boards hat er sich als zuverlässig, zielstrebig und kommunikativ erwiesen. Er bringt fundierte technische Kenntnisse mit und trägt stets dazu bei, dass das Team vorankommt.“',
+        name: 'Noureddin Boussadaa',
         project: 'Join',
       },
       {
-        quote: '„Strukturierter Code, klare Kommunikation und ein gutes Auge für Details.“',
-        name: 'Beispielperson B',
-        project: 'El Pollo Loco',
+        quote:
+          '„Die Zusammenarbeit war zuverlässig und gut abgestimmt. Aufgaben wurden sauber umgesetzt und Rückfragen früh geklärt.“',
+        name: 'Beispielperson A',
+        project: 'Join',
       },
+
       {
-        quote: '„Feedback wurde schnell aufgenommen und das Ergebnis Schritt für Schritt verbessert.“',
+        quote:
+          '„Feedback wurde schnell aufgenommen und das Ergebnis Schritt für Schritt verbessert.“',
         name: 'Beispielperson C',
         project: 'Pokedex',
       },
@@ -311,14 +317,16 @@ const en: Dictionary = {
       join: 'Working in a team, JavaScript, authentication and data storage with Firebase, and communicating within the group.',
       pollo: 'Object-oriented programming with JavaScript.',
       pokedex: 'Working with an API: fetching, reading and clearly presenting data.',
-      whatEat: 'Taking an app from development to release: working with Capacitor, Android Studio and the Google Play Console.',
+      whatEat:
+        'Taking an app from development to release: working with Capacitor, Android Studio and the Google Play Console.',
     },
     live: 'Live Test',
     showMore: 'Show me more',
     showLess: 'Show me less',
     screenshot: 'Screenshot of',
     ongoing: 'Ongoing project',
-    ongoingText: 'I am currently working on the Brunnen Bau Suite, a web application and app for the professional trades sector. I am building it around the needs of real customers.',
+    ongoingText:
+      'I am currently working on the Brunnen Bau Suite, a web application and app for the professional trades sector. I am building it around the needs of real customers.',
     cta: "Let's talk",
     descriptions: {
       join: 'Kanban board for task management with drag & drop, contact management and login or guest access. Data is stored with Firebase.',
@@ -337,15 +345,18 @@ const en: Dictionary = {
     exampleLabel: 'Example',
     items: [
       {
-        quote: '“The collaboration was reliable and well coordinated. Tasks were implemented cleanly and questions were clarified early.”',
-        name: 'Example person A',
+        quote:
+          '“Matthias is a great teammate to have in a project. While building our Kanban board together, he proved to be dependable, focused, and easy to communicate with. He brings solid technical skills to the table and always helps keep the team moving forward.”',
+        name: 'Noureddin Boussadaa',
         project: 'Join',
       },
       {
-        quote: '“Structured code, clear communication and a good eye for detail.”',
-        name: 'Example person B',
-        project: 'El Pollo Loco',
+        quote:
+          '“The collaboration was reliable and well coordinated. Tasks were implemented cleanly and questions were clarified early.”',
+        name: 'Example person A',
+        project: 'Join',
       },
+
       {
         quote: '“Feedback was picked up quickly and the result improved step by step.”',
         name: 'Example person C',
