@@ -29,6 +29,17 @@
       }
     }
 
+    // Keeps the theme look when WebKit fills in a field
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      -webkit-text-fill-color: var(--color-text);
+      caret-color: var(--color-text);
+      box-shadow: 0 0 0 100px var(--color-surface-light) inset;
+      // Delays the browser's own background colour practically forever
+      transition: background-color 9999s;
+    }
+
     &--area {
       display: block;
       height: clamp(7rem, 22vh, 15rem);

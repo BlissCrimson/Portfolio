@@ -44,6 +44,14 @@ export class Contact {
 
   protected onInput(event: Event): void {
     this.values.set(this.readValues(event.currentTarget as HTMLFormElement));
+
+    // No validation while typing: the field is checked again once it is left
+    const field = (event.target as HTMLInputElement).name;
+    this.touched.update((current) => {
+      const next = new Set(current);
+      next.delete(field);
+      return next;
+    });
   }
 
   protected onBlur(event: Event): void {

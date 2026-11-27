@@ -32,7 +32,7 @@ const de = {
   hero: { photoAlt: 'Porträt von Matthias Tausch', city: 'Husum' },
   why: {
     title: 'Warum ich',
-    text: 'Ich bin Frontend Developer mit Fokus auf moderne, performante und zugängliche Web-Anwendungen. Ich arbeite gerne mit TypeScript, durchdachten UI-Konzepten und sauberem, wartbarem Code – von der ersten Idee bis zum fertigen Interface.',
+    text: 'Ich bin Frontend Developer mit Fokus auf moderne, performante und zugängliche Webanwendungen. Ich arbeite gerne mit TypeScript, durchdachten UI-Konzepten und sauberem, wartbarem Code – von der ersten Idee bis zum fertigen Interface.',
     iAm: 'Ich bin',
     located: 'in Husum zu Hause',
     remote: 'offen für Remote-Arbeit',
@@ -42,7 +42,7 @@ const de = {
     title: 'Meine Skills',
     intro:
       'Technologien und Methoden, die ich in Projekten konkret einsetze – ohne künstliche Prozentwerte.',
-    challenge: 'Fordere mich',
+    challenge: 'Fordere mich heraus',
     more: 'Ich lerne gerne dazu und arbeite mich in neue Technologien ein.',
     cta: 'Lass uns reden',
   },
@@ -63,14 +63,14 @@ const de = {
     showLess: 'Weniger anzeigen',
     screenshot: 'Screenshot von',
     ongoing: 'Aktuelles Projekt',
-    ongoingText: 'Derzeit arbeite ich an der Brunnen Bau Suite, einer Webanwendung und App für den professionellen, handwerklichen Bereich. Ich setze dabei die Wünsche echter Kunden um.',
+    ongoingText: 'Derzeit arbeite ich an der Brunnen Bau Suite, einer Webanwendung und App für das professionelle Handwerk. Ich setze dabei die Wünsche echter Kunden um.',
     cta: 'Lass uns reden',
     descriptions: {
       join: 'Kanban-Board zur Aufgabenverwaltung mit Drag & Drop, Kontaktverwaltung und Login/Gastzugang. Die Daten werden über Firebase gespeichert.',
       pollo:
         "2D-Jump-'n'-Run im Browser mit Canvas-Rendering, Gegner-KI, Endgegner-Kampf und objektorientierter Spiellogik.",
       pokedex:
-        'Web-App zum Durchsuchen und Filtern von Pokémon. Sie lädt Daten live über die PokéAPI und zeigt Details in einer Kartenansicht.',
+        'Webanwendung zum Durchsuchen und Filtern von Pokémon. Sie lädt Daten live über die PokéAPI und zeigt Details in einer Kartenansicht.',
       whatEat:
         'Android-App, die per Knopfdruck ein Gericht aus der eigenen Liste vorschlägt. Die Gerichte werden lokal auf dem Gerät gespeichert.',
     },
@@ -185,7 +185,7 @@ const de = {
         title: 'Empfänger',
         sub: true,
         paragraphs: [
-          'Empfänger der Daten sind ggf. technische Dienstleister, die für den Betrieb und die Wartung unserer Webseite als Auftragsverarbeiter tätig werden (siehe Abschnitt „Hosting und Server-Logfiles“).',
+          'Empfänger der Daten sind ggf. technische Dienstleister, die für den Betrieb und die Wartung unserer Website als Auftragsverarbeiter tätig werden (siehe Abschnitt „Hosting und Server-Logfiles“).',
         ],
       },
       {
@@ -226,7 +226,7 @@ const de = {
       {
         title: 'Externe Links',
         paragraphs: [
-          'Diese Website enthält Links zu LinkedIn und GitHub. Es sind keine Social-Media-Plugins eingebunden. Daten werden erst an den jeweiligen Anbieter übertragen, wenn Sie einen Link anklicken. Es gelten dann die Datenschutzbestimmungen des jeweiligen Anbieters.',
+          'Diese Website enthält Links zu LinkedIn, GitHub und zum Google Play Store. Es sind keine Social-Media-Plugins eingebunden. Daten werden erst an den jeweiligen Anbieter übertragen, wenn Sie einen Link anklicken. Es gelten dann die Datenschutzbestimmungen des jeweiligen Anbieters.',
         ],
       },
       {
@@ -318,7 +318,7 @@ const en: Dictionary = {
     showLess: 'Show me less',
     screenshot: 'Screenshot of',
     ongoing: 'Ongoing project',
-    ongoingText: 'I am currently working on the Brunnen Bau Suite, a web application and app for the professional trades sector. I implement the requirements of real customers.',
+    ongoingText: 'I am currently working on the Brunnen Bau Suite, a web application and app for the professional trades sector. I am building it around the needs of real customers.',
     cta: "Let's talk",
     descriptions: {
       join: 'Kanban board for task management with drag & drop, contact management and login or guest access. Data is stored with Firebase.',
@@ -439,7 +439,7 @@ const en: Dictionary = {
         title: 'Recipients',
         sub: true,
         paragraphs: [
-          'Recipients of the data may be technical service providers that act as processors for the operation and maintenance of our website (see section "Hosting and server log files").',
+          'Recipients of the data may be technical service providers that act as processors for the operation and maintenance of our website (see the section “Hosting and server log files”).',
         ],
       },
       {
@@ -474,13 +474,13 @@ const en: Dictionary = {
       {
         title: 'Local storage of settings',
         paragraphs: [
-          'This website stores the language you have chosen (German or English) and your colour scheme in your browser local storage (localStorage). The entries stay on your device and are not transmitted to us. No cookies are set and no tracking or analytics tools are used.',
+          'This website stores the language you have chosen (German or English) and your colour scheme in your browser’s local storage (localStorage). The entries stay on your device and are not transmitted to us. No cookies are set and no tracking or analytics tools are used.',
         ],
       },
       {
         title: 'External links',
         paragraphs: [
-          'This website contains links to LinkedIn and GitHub. No social media plugins are embedded. Data is only transmitted to the respective provider when you click a link. The provider privacy policy then applies.',
+          'This website contains links to LinkedIn, GitHub and the Google Play Store. No social media plugins are embedded. Data is only transmitted to the respective provider when you click a link. The provider’s privacy policy then applies.',
         ],
       },
       {

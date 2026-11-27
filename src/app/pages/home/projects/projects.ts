@@ -56,7 +56,6 @@ const projects: readonly Project[] = [
     ],
     repoUrl: 'https://github.com/BlissCrimson/what-eat',
     storeUrl: 'https://play.google.com/store/apps/details?id=de.janusnova.whateat',
-    // Subdomain still has to be set up
     demoUrl: 'https://whateat.matthias-tausch.com',
   },
 ];

@@ -82,7 +82,13 @@
 }
 
 @include indexAbstract.mobile {
+  // Together with the top bar the hero fills the viewport
   :host.panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: calc(100vh - var(--topbar-height));
+    min-height: calc(100svh - var(--topbar-height));
     padding: 0 0 1rem;
   }
 

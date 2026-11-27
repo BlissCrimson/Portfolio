@@ -104,3 +104,24 @@
     display: none;
   }
 }
+
+// Too narrow for two columns: the author moves below the quote
+@media (max-width: 480px) {
+  .references {
+    &__item {
+      grid-template-columns: 1fr;
+      align-content: center;
+      gap: 1rem;
+
+      blockquote {
+        padding-right: 0;
+      }
+    }
+
+    &__author {
+      padding: 1rem 0 0;
+      border-top: 1px solid var(--color-accent-soft);
+      border-left: 0;
+    }
+  }
+}
