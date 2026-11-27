@@ -86,3 +86,5 @@
 2026-11-27 - styles/themes: Paletten in eigene Dateien aufgeteilt (neu _green.scss, _turquoise.scss, _yellow.scss; _colors.scss nur noch gemeinsame Farben, _indexThemes.scss ergänzt). theme-menu: Button zeigt neben dem Burger-Icon den Kreis des aktiven Themes, aria-label nennt dessen Namen.
 2026-11-27 - CLAUDE.md: Zeile zum Theming an die neue Struktur in styles/themes angepasst (eine Datei pro Theme, gemeinsame Farben in _colors.scss).
 2026-11-27 - CLAUDE.md: Abschnitt Architektur um layout/theme-menu/ und shared/services/theme.ts ergänzt.
+2026-11-27 - Logo: Text "MT" in Header und mobilem Footer durch das Monogramm aus public/assets/logo/monogramm_mt.svg ersetzt (Pfad als monogramPath in header.ts, von footer.ts importiert; Ausschnitt 687 464 781 542, da der Pfad über die viewBox der Datei hinausragt; Farbe per currentColor).
+2026-11-27 - Logo: monogramPath an die erneuerte monogramm_mt.svg angepasst (Zeichnung liegt jetzt innerhalb der viewBox); Ausschnitt in header.html und footer.html auf 319 393 781 542.

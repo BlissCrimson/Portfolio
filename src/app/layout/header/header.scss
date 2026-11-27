@@ -30,11 +30,7 @@ $sidebar-gradient: linear-gradient(160deg, var(--color-accent) 60%, var(--color-
   }
 
   &__logo-initials {
-    font-size: 34px;
-    font-weight: 700;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.4;
+    fill: currentColor;
   }
 
   &__toggle {

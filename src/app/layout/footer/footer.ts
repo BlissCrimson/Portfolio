@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { Translation } from '../../shared/services/translation';
+import { monogramPath } from '../header/header';
 import { socialLinks } from '../social-links';
 
 @Component({
@@ -12,5 +13,6 @@ import { socialLinks } from '../social-links';
 export class Footer {
   protected readonly translation = inject(Translation);
   protected readonly socials = socialLinks;
+  protected readonly monogramPath = monogramPath;
   protected readonly year = new Date().getFullYear();
 }
